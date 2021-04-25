@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,10 @@
 		32A7F5A3263521D400058AAE /* Climbing_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5A2263521D400058AAE /* Climbing_MapUITests.swift */; };
 		32A7F5BF263523ED00058AAE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5BE263523ED00058AAE /* MapViewController.swift */; };
 		32A7F5C42635241400058AAE /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5C32635241400058AAE /* Map.storyboard */; };
+		32A7F5DF26358D3800058AAE /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */; };
+		B8BC1B57780B488BD4AFC16D /* Pods_Climbing_MapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653DE97E1CBACF9F5D878ECE /* Pods_Climbing_MapTests.framework */; };
+		C11E06E069B0A853EEF34E58 /* Pods_Climbing_Map_Climbing_MapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF3DD622CF684FBD0DB7FF /* Pods_Climbing_Map_Climbing_MapUITests.framework */; };
+		D98EDFACF6260AD3407926B9 /* Pods_Climbing_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FC8F96D79F04F7C146A92 /* Pods_Climbing_Map.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		02336ACE01AB923A0DF509E5 /* Pods-Climbing-Map.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-Map.debug.xcconfig"; path = "Target Support Files/Pods-Climbing-Map/Pods-Climbing-Map.debug.xcconfig"; sourceTree = "<group>"; };
 		32A7F57D263521D100058AAE /* Climbing-Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Climbing-Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A7F580263521D100058AAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32A7F582263521D100058AAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +52,15 @@
 		32A7F5A4263521D400058AAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32A7F5BE263523ED00058AAE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		32A7F5C32635241400058AAE /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
+		32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
+		54364B952E5F002E2F7E9FE2 /* Pods-Climbing-MapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-MapTests.release.xcconfig"; path = "Target Support Files/Pods-Climbing-MapTests/Pods-Climbing-MapTests.release.xcconfig"; sourceTree = "<group>"; };
+		653DE97E1CBACF9F5D878ECE /* Pods_Climbing_MapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Climbing_MapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		912DE7DFC1DB1FC43666E0AB /* Pods-Climbing-Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-Map.release.xcconfig"; path = "Target Support Files/Pods-Climbing-Map/Pods-Climbing-Map.release.xcconfig"; sourceTree = "<group>"; };
+		9B5FC8F96D79F04F7C146A92 /* Pods_Climbing_Map.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Climbing_Map.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BC46B5F28B404CC237B513EC /* Pods-Climbing-Map-Climbing-MapUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-Map-Climbing-MapUITests.debug.xcconfig"; path = "Target Support Files/Pods-Climbing-Map-Climbing-MapUITests/Pods-Climbing-Map-Climbing-MapUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		C98B6483689B7B9B3961D2E0 /* Pods-Climbing-Map-Climbing-MapUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-Map-Climbing-MapUITests.release.xcconfig"; path = "Target Support Files/Pods-Climbing-Map-Climbing-MapUITests/Pods-Climbing-Map-Climbing-MapUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E4DDAE50BFABA0D683AEEF2D /* Pods-Climbing-MapTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-MapTests.debug.xcconfig"; path = "Target Support Files/Pods-Climbing-MapTests/Pods-Climbing-MapTests.debug.xcconfig"; sourceTree = "<group>"; };
+		FDFF3DD622CF684FBD0DB7FF /* Pods_Climbing_Map_Climbing_MapUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Climbing_Map_Climbing_MapUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D98EDFACF6260AD3407926B9 /* Pods_Climbing_Map.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8BC1B57780B488BD4AFC16D /* Pods_Climbing_MapTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +84,26 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C11E06E069B0A853EEF34E58 /* Pods_Climbing_Map_Climbing_MapUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08EA7388087D30D42E08F2F7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				02336ACE01AB923A0DF509E5 /* Pods-Climbing-Map.debug.xcconfig */,
+				912DE7DFC1DB1FC43666E0AB /* Pods-Climbing-Map.release.xcconfig */,
+				BC46B5F28B404CC237B513EC /* Pods-Climbing-Map-Climbing-MapUITests.debug.xcconfig */,
+				C98B6483689B7B9B3961D2E0 /* Pods-Climbing-Map-Climbing-MapUITests.release.xcconfig */,
+				E4DDAE50BFABA0D683AEEF2D /* Pods-Climbing-MapTests.debug.xcconfig */,
+				54364B952E5F002E2F7E9FE2 /* Pods-Climbing-MapTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		32A7F574263521D100058AAE = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +111,8 @@
 				32A7F596263521D400058AAE /* Climbing-MapTests */,
 				32A7F5A1263521D400058AAE /* Climbing-MapUITests */,
 				32A7F57E263521D100058AAE /* Products */,
+				08EA7388087D30D42E08F2F7 /* Pods */,
+				615CA80A2EE49A31CEB08384 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,6 +135,7 @@
 				32A7F58E263521D400058AAE /* Info.plist */,
 				32A7F5BE263523ED00058AAE /* MapViewController.swift */,
 				32A7F5C32635241400058AAE /* Map.storyboard */,
+				32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */,
 			);
 			path = "Climbing-Map";
 			sourceTree = "<group>";
@@ -125,6 +158,16 @@
 			path = "Climbing-MapUITests";
 			sourceTree = "<group>";
 		};
+		615CA80A2EE49A31CEB08384 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9B5FC8F96D79F04F7C146A92 /* Pods_Climbing_Map.framework */,
+				FDFF3DD622CF684FBD0DB7FF /* Pods_Climbing_Map_Climbing_MapUITests.framework */,
+				653DE97E1CBACF9F5D878ECE /* Pods_Climbing_MapTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -132,9 +175,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32A7F5A7263521D400058AAE /* Build configuration list for PBXNativeTarget "Climbing-Map" */;
 			buildPhases = (
+				88A93C47352D0C291498A8DD /* [CP] Check Pods Manifest.lock */,
 				32A7F579263521D100058AAE /* Sources */,
 				32A7F57A263521D100058AAE /* Frameworks */,
 				32A7F57B263521D100058AAE /* Resources */,
+				62AE605DAD65ADD09C55515C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -149,6 +194,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32A7F5AA263521D400058AAE /* Build configuration list for PBXNativeTarget "Climbing-MapTests" */;
 			buildPhases = (
+				E5EFFAE970697DDF2E2B1F96 /* [CP] Check Pods Manifest.lock */,
 				32A7F58F263521D400058AAE /* Sources */,
 				32A7F590263521D400058AAE /* Frameworks */,
 				32A7F591263521D400058AAE /* Resources */,
@@ -167,9 +213,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32A7F5AD263521D400058AAE /* Build configuration list for PBXNativeTarget "Climbing-MapUITests" */;
 			buildPhases = (
+				E9AF7E30E6546A1805CBDC20 /* [CP] Check Pods Manifest.lock */,
 				32A7F59A263521D400058AAE /* Sources */,
 				32A7F59B263521D400058AAE /* Frameworks */,
 				32A7F59C263521D400058AAE /* Resources */,
+				F7D8AA9BC16E88EFFE1CD32E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -249,11 +297,115 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		62AE605DAD65ADD09C55515C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Climbing-Map/Pods-Climbing-Map-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Climbing-Map/Pods-Climbing-Map-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Climbing-Map/Pods-Climbing-Map-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		88A93C47352D0C291498A8DD /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Climbing-Map-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E5EFFAE970697DDF2E2B1F96 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Climbing-MapTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9AF7E30E6546A1805CBDC20 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Climbing-Map-Climbing-MapUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F7D8AA9BC16E88EFFE1CD32E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Climbing-Map-Climbing-MapUITests/Pods-Climbing-Map-Climbing-MapUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Climbing-Map-Climbing-MapUITests/Pods-Climbing-Map-Climbing-MapUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Climbing-Map-Climbing-MapUITests/Pods-Climbing-Map-Climbing-MapUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		32A7F579263521D100058AAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32A7F5DF26358D3800058AAE /* MapDetailViewController.swift in Sources */,
 				32A7F581263521D100058AAE /* AppDelegate.swift in Sources */,
 				32A7F583263521D100058AAE /* SceneDelegate.swift in Sources */,
 				32A7F5BF263523ED00058AAE /* MapViewController.swift in Sources */,
@@ -410,6 +562,7 @@
 		};
 		32A7F5A8263521D400058AAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 02336ACE01AB923A0DF509E5 /* Pods-Climbing-Map.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -429,6 +582,7 @@
 		};
 		32A7F5A9263521D400058AAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 912DE7DFC1DB1FC43666E0AB /* Pods-Climbing-Map.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -448,6 +602,7 @@
 		};
 		32A7F5AB263521D400058AAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E4DDAE50BFABA0D683AEEF2D /* Pods-Climbing-MapTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -469,6 +624,7 @@
 		};
 		32A7F5AC263521D400058AAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 54364B952E5F002E2F7E9FE2 /* Pods-Climbing-MapTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -490,6 +646,7 @@
 		};
 		32A7F5AE263521D400058AAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC46B5F28B404CC237B513EC /* Pods-Climbing-Map-Climbing-MapUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -509,6 +666,7 @@
 		};
 		32A7F5AF263521D400058AAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C98B6483689B7B9B3961D2E0 /* Pods-Climbing-Map-Climbing-MapUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
