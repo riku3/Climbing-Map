@@ -14,6 +14,8 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     var locationManager: CLLocationManager!
     
+    var onceNowLocationFlag = true
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,12 +51,16 @@ extension MapViewController: CLLocationManagerDelegate {
     
     // 位置情報の更新
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        // 現在地に照準を合わす
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01) // 0.01が距離の倍率
-
-        // 現在地の取得
-        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: span)
-        // ここで照準を合わせている
-        mapView.region = region
+        // 初回のみ現在地に標準を合わせる
+        if onceNowLocationFlag {
+            if let coordinate = locations.last?.coordinate {
+                // 現在地を拡大して表示する
+                let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01) // 0.01が距離の倍率
+                let region = MKCoordinateRegion(center: coordinate, span: span)
+                mapView.region = region
+                
+                onceNowLocationFlag = false
+            }
+        }
     }
 }
