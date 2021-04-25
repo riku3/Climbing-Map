@@ -29,6 +29,9 @@
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="leading" secondItem="trs-iR-YFr" secondAttribute="leading" id="Z90-Ud-n8o"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="Dle-4Z-6Ej" id="El4-Nk-dvL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVo-u5-Afh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
