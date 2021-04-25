@@ -14,7 +14,6 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationBtn: UIButton!
     var locationManager: CLLocationManager!
-    
     var onceNowLocationFlag = true
     
     override func viewDidLoad() {
@@ -32,6 +31,14 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         locationManager!.requestWhenInUseAuthorization()
     }
+    
+    @IBAction func tappedLocationBtn(_ sender: UIButton) {
+        // 現在地に移動
+        let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // 0.01が距離の倍率
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: span)
+        mapView.region = region
+    }
+    
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -62,8 +69,8 @@ extension MapViewController: CLLocationManagerDelegate {
         // 初回のみ現在地に標準を合わせる
         if onceNowLocationFlag {
             if let coordinate = locations.last?.coordinate {
-                // 現在地を拡大して表示する
-                let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01) // 0.01が距離の倍率
+                // 現在地に移動
+                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // 0.01が距離の倍率
                 let region = MKCoordinateRegion(center: coordinate, span: span)
                 mapView.region = region
                 

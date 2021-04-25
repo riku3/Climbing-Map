@@ -35,6 +35,9 @@
                                         <integer key="value" value="25"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedLocationBtn:" destination="dH2-Nm-wyQ" eventType="touchUpInside" id="Cee-mz-YUL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="trs-iR-YFr"/>
