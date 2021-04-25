@@ -25,6 +25,8 @@ class MapViewController: UIViewController {
 }
 
 extension MapViewController: CLLocationManagerDelegate {
+    
+    // 位置情報の許諾
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         // 許可されてない場合
@@ -43,5 +45,16 @@ extension MapViewController: CLLocationManagerDelegate {
         default:
             break
         }
+    }
+    
+    // 位置情報の更新
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        // 現在地に照準を合わす
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01) // 0.01が距離の倍率
+
+        // 現在地の取得
+        let region = MKCoordinateRegion(center: mapView.userLocation.coordinate, span: span)
+        // ここで照準を合わせている
+        mapView.region = region
     }
 }
