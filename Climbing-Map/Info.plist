@@ -53,6 +53,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>許可しない場合は現在地を表示できません</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>許可しない場合は現在地を表示できません</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
