@@ -8,37 +8,29 @@
 import UIKit
 import MapKit
 import CoreLocation
+import FloatingPanel
 
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationBtn: UIButton!
+    
     var locationManager: CLLocationManager!
     var onceNowLocationFlag = true
+    var fpc = FloatingPanelController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // 現在地ボタンのデザイン更新
-        locationBtn.layer.shadowColor = UIColor.black.cgColor
-        locationBtn.layer.shadowRadius = 2
-        locationBtn.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
-        locationBtn.layer.shadowOpacity = 0.5
-        locationBtn.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        // セットアップ
+        setUpLocationManager()
+        setUpLocationBtn()
+        setPinToMap()
         
-        // ロケーションマネージャーのセットアップ
-        locationManager = CLLocationManager()
+        // delegate
         locationManager.delegate = self
-        locationManager!.requestWhenInUseAuthorization()
-        
-        // 岩ピン生成(Mock)
-        let rock = MKPointAnnotation()
-        rock.title = "嶺の夕"
-        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
-        rock.coordinate = CLLocationCoordinate2D(latitude: 35.801301, longitude: 139.945875)
-        mapView.addAnnotation(rock)
-        
         mapView.delegate = self
+        fpc.delegate = self
     }
     
     @IBAction func tappedLocationBtn(_ sender: UIButton) {
@@ -48,6 +40,37 @@ class MapViewController: UIViewController {
         mapView.region = region
     }
     
+    @IBAction func mapViewDidTap(sender: UITapGestureRecognizer) {
+        if sender.state == UIGestureRecognizer.State.ended {
+            fpc.hide()
+        }
+    }
+    
+    // ロケーションマネージャーのセットアップ
+    private func setUpLocationManager() {
+        // ロケーションマネージャーのセットアップ
+        locationManager = CLLocationManager()
+        locationManager!.requestWhenInUseAuthorization()
+    }
+    // ロケーションボタンを設定する
+    private func setUpLocationBtn() {
+        // 現在地ボタンのデザイン更新
+        locationBtn.layer.shadowColor = UIColor.black.cgColor
+        locationBtn.layer.shadowRadius = 2
+        locationBtn.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        locationBtn.layer.shadowOpacity = 0.5
+        locationBtn.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+    }
+    
+    // ピンをセットする
+    private func setPinToMap() {
+        // 岩ピン生成(Mock)
+        let rock = MKPointAnnotation()
+        rock.title = "嶺の夕"
+        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
+        rock.coordinate = CLLocationCoordinate2D(latitude: 35.801301, longitude: 139.945875)
+        mapView.addAnnotation(rock)
+    }
 }
 
 extension MapViewController: CLLocationManagerDelegate {
@@ -94,7 +117,37 @@ extension MapViewController: MKMapViewDelegate {
     // ピン押下時
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation{
-            print(annotation.title!!)
+            let mapDetailVC = MapDetailViewController()
+            fpc.show()
+            fpc.set(contentViewController: mapDetailVC)
+            fpc.addPanel(toParent: self)
         }
     }
 }
+
+extension MapViewController: FloatingPanelControllerDelegate {
+    
+    // カスタム半モーダル
+    func floatingPanel(_ fpc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
+        return LandscapePanelLayout()
+    }
+}
+
+class LandscapePanelLayout: FloatingPanelLayout {
+    let position: FloatingPanelPosition = .bottom
+    let initialState: FloatingPanelState = .tip
+    var anchors: [FloatingPanelState: FloatingPanelLayoutAnchoring] {
+        return [
+            .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
+            .tip: FloatingPanelLayoutAnchor(absoluteInset: 130.0, edge: .bottom, referenceGuide: .safeArea),
+        ]
+    }
+    // 横幅のカスタム
+//    func prepareLayout(surfaceView: UIView, in view: UIView) -> [NSLayoutConstraint] {
+//        return [
+//            surfaceView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 8.0),
+//            surfaceView.widthAnchor.constraint(equalToConstant: 291),
+//        ]
+//    }
+}
+
