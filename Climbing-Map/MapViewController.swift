@@ -12,12 +12,20 @@ import CoreLocation
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var locationBtn: UIButton!
     var locationManager: CLLocationManager!
     
     var onceNowLocationFlag = true
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // 現在地ボタンのデザイン更新
+        locationBtn.layer.shadowColor = UIColor.black.cgColor
+        locationBtn.layer.shadowRadius = 2
+        locationBtn.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        locationBtn.layer.shadowOpacity = 0.5
+        locationBtn.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
         
         // ロケーションマネージャーのセットアップ
         locationManager = CLLocationManager()

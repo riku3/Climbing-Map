@@ -19,17 +19,37 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dle-4Z-6Ej">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="icm-Nv-uQK">
+                                <rect key="frame" x="344.5" y="772" width="50" height="50"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="2NG-15-Co7"/>
+                                    <constraint firstAttribute="width" secondItem="icm-Nv-uQK" secondAttribute="height" multiplier="1:1" id="uDW-IM-HDJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="location.fill" catalog="system"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="25"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="trs-iR-YFr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="trailing" secondItem="trs-iR-YFr" secondAttribute="trailing" id="0rg-8Y-iaI"/>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="top" secondItem="pAA-Zm-7Kw" secondAttribute="top" id="2fy-qQ-nNT"/>
+                            <constraint firstItem="trs-iR-YFr" firstAttribute="trailing" secondItem="icm-Nv-uQK" secondAttribute="trailing" multiplier="1.05" id="EuS-Ux-dGS"/>
                             <constraint firstAttribute="bottom" secondItem="Dle-4Z-6Ej" secondAttribute="bottom" id="LPu-0N-hVy"/>
+                            <constraint firstItem="trs-iR-YFr" firstAttribute="bottom" secondItem="icm-Nv-uQK" secondAttribute="bottom" multiplier="1.05" constant="-1.1000000000000227" id="XgS-WI-bsx"/>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="leading" secondItem="trs-iR-YFr" secondAttribute="leading" id="Z90-Ud-n8o"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="locationBtn" destination="icm-Nv-uQK" id="Hz5-Oq-aLy"/>
                         <outlet property="mapView" destination="Dle-4Z-6Ej" id="El4-Nk-dvL"/>
                     </connections>
                 </viewController>
@@ -39,6 +59,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="location.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
