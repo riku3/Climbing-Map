@@ -9,12 +9,11 @@
 /* Begin PBXBuildFile section */
 		32A7F581263521D100058AAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F580263521D100058AAE /* AppDelegate.swift */; };
 		32A7F583263521D100058AAE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F582263521D100058AAE /* SceneDelegate.swift */; };
-		32A7F585263521D100058AAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F584263521D100058AAE /* ViewController.swift */; };
-		32A7F588263521D100058AAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F586263521D100058AAE /* Main.storyboard */; };
 		32A7F58A263521D400058AAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F589263521D400058AAE /* Assets.xcassets */; };
-		32A7F58D263521D400058AAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F58B263521D400058AAE /* LaunchScreen.storyboard */; };
 		32A7F598263521D400058AAE /* Climbing_MapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F597263521D400058AAE /* Climbing_MapTests.swift */; };
 		32A7F5A3263521D400058AAE /* Climbing_MapUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5A2263521D400058AAE /* Climbing_MapUITests.swift */; };
+		32A7F5BF263523ED00058AAE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5BE263523ED00058AAE /* MapViewController.swift */; };
+		32A7F5C42635241400058AAE /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5C32635241400058AAE /* Map.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,10 +37,7 @@
 		32A7F57D263521D100058AAE /* Climbing-Map.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Climbing-Map.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A7F580263521D100058AAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32A7F582263521D100058AAE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		32A7F584263521D100058AAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		32A7F587263521D100058AAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		32A7F589263521D400058AAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		32A7F58C263521D400058AAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32A7F58E263521D400058AAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32A7F593263521D400058AAE /* Climbing-MapTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Climbing-MapTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A7F597263521D400058AAE /* Climbing_MapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climbing_MapTests.swift; sourceTree = "<group>"; };
@@ -49,6 +45,8 @@
 		32A7F59E263521D400058AAE /* Climbing-MapUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Climbing-MapUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32A7F5A2263521D400058AAE /* Climbing_MapUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Climbing_MapUITests.swift; sourceTree = "<group>"; };
 		32A7F5A4263521D400058AAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32A7F5BE263523ED00058AAE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		32A7F5C32635241400058AAE /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +99,10 @@
 			children = (
 				32A7F580263521D100058AAE /* AppDelegate.swift */,
 				32A7F582263521D100058AAE /* SceneDelegate.swift */,
-				32A7F584263521D100058AAE /* ViewController.swift */,
-				32A7F586263521D100058AAE /* Main.storyboard */,
 				32A7F589263521D400058AAE /* Assets.xcassets */,
-				32A7F58B263521D400058AAE /* LaunchScreen.storyboard */,
 				32A7F58E263521D400058AAE /* Info.plist */,
+				32A7F5BE263523ED00058AAE /* MapViewController.swift */,
+				32A7F5C32635241400058AAE /* Map.storyboard */,
 			);
 			path = "Climbing-Map";
 			sourceTree = "<group>";
@@ -231,9 +228,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A7F58D263521D400058AAE /* LaunchScreen.storyboard in Resources */,
 				32A7F58A263521D400058AAE /* Assets.xcassets in Resources */,
-				32A7F588263521D100058AAE /* Main.storyboard in Resources */,
+				32A7F5C42635241400058AAE /* Map.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,9 +254,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32A7F585263521D100058AAE /* ViewController.swift in Sources */,
 				32A7F581263521D100058AAE /* AppDelegate.swift in Sources */,
 				32A7F583263521D100058AAE /* SceneDelegate.swift in Sources */,
+				32A7F5BF263523ED00058AAE /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,25 +290,6 @@
 			targetProxy = 32A7F59F263521D400058AAE /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		32A7F586263521D100058AAE /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				32A7F587263521D100058AAE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		32A7F58B263521D400058AAE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				32A7F58C263521D400058AAE /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		32A7F5A5263521D400058AAE /* Debug */ = {
@@ -437,6 +414,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLNS64FXNZ;
 				INFOPLIST_FILE = "Climbing-Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -455,6 +433,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BLNS64FXNZ;
 				INFOPLIST_FILE = "Climbing-Map/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
