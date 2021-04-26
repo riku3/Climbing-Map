@@ -67,7 +67,8 @@ class MapViewController: UIViewController {
         // 岩ピン生成(Mock)
         let rock = MKPointAnnotation()
         rock.title = "日陰岩"
-        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
+        // サブタイトル
+//        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
         rock.coordinate = CLLocationCoordinate2D(latitude: 35.801301, longitude: 139.945875)
         mapView.addAnnotation(rock)
     }

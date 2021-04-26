@@ -9,6 +9,8 @@ import UIKit
 
 class ImageTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var name: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -17,4 +19,7 @@ class ImageTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func setRock(name: String) {
+        self.name.text = name
+    }
 }

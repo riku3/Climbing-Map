@@ -13,25 +13,10 @@ class MapDetailViewController: UIViewController {
     
     var rocks:[RockModel] = [RockModel]()
     
-    enum Cell: Int, CaseIterable {
-        case imageCustomViewCell
-        case rockCustomViewCell
-        case projectCustomViewCell
-
-        var cellIdentifier: String {
-            switch self {
-            case .imageCustomViewCell: return "ImageTableViewCell"
-            case .rockCustomViewCell: return "RockTableViewCell"
-            case .projectCustomViewCell: return "ProjectTableViewCell"
-            }
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         mapDetailTableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableViewCell")
-        mapDetailTableView.register(UINib(nibName: "RockTableViewCell", bundle: nil), forCellReuseIdentifier: "RockTableViewCell")
         mapDetailTableView.register(UINib(nibName: "ProjectTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectTableViewCell")
         
         self.setupRocks()
@@ -58,21 +43,18 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rocks.count + 2
+        return rocks.count + 1
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
-            return cell
-        case 1:
-            let cell = tableView.dequeueReusableCell(withIdentifier: "RockTableViewCell") as! RockTableViewCell
             cell.setRock(name: "日陰岩")
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell
-            cell.setProject(project: rocks[indexPath.row - 2])
+            cell.setProject(project: rocks[indexPath.row - 1])
             return cell
         }
     }
@@ -81,8 +63,6 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             return 170
-        case 1:
-            return 50
         default:
             return 130
         }

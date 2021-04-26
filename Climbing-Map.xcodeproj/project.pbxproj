@@ -17,8 +17,6 @@
 		32A7F5DF26358D3800058AAE /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */; };
 		32A7F5EA2636487200058AAE /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5E82636487200058AAE /* ImageTableViewCell.swift */; };
 		32A7F5EB2636487200058AAE /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5E92636487200058AAE /* ImageTableViewCell.xib */; };
-		32A7F5F12636489400058AAE /* RockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5EF2636489400058AAE /* RockTableViewCell.swift */; };
-		32A7F5F22636489400058AAE /* RockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5F02636489400058AAE /* RockTableViewCell.xib */; };
 		32A7F5F8263648A000058AAE /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */; };
 		32A7F5F9263648A000058AAE /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */; };
 		32A7F62326365F7600058AAE /* MapDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F62226365F7600058AAE /* MapDetail.storyboard */; };
@@ -64,8 +62,6 @@
 		32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
 		32A7F5E82636487200058AAE /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
 		32A7F5E92636487200058AAE /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
-		32A7F5EF2636489400058AAE /* RockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockTableViewCell.swift; sourceTree = "<group>"; };
-		32A7F5F02636489400058AAE /* RockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RockTableViewCell.xib; sourceTree = "<group>"; };
 		32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		32A7F62226365F7600058AAE /* MapDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapDetail.storyboard; sourceTree = "<group>"; };
@@ -157,8 +153,6 @@
 				32A7F62226365F7600058AAE /* MapDetail.storyboard */,
 				32A7F5E82636487200058AAE /* ImageTableViewCell.swift */,
 				32A7F5E92636487200058AAE /* ImageTableViewCell.xib */,
-				32A7F5EF2636489400058AAE /* RockTableViewCell.swift */,
-				32A7F5F02636489400058AAE /* RockTableViewCell.xib */,
 				32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */,
 				32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */,
 				32A7F62D26368B1D00058AAE /* RockModel.swift */,
@@ -308,7 +302,6 @@
 				32A7F62326365F7600058AAE /* MapDetail.storyboard in Resources */,
 				32A7F5EB2636487200058AAE /* ImageTableViewCell.xib in Resources */,
 				32A7F5C42635241400058AAE /* Map.storyboard in Resources */,
-				32A7F5F22636489400058AAE /* RockTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +434,6 @@
 				32A7F63A2636AF0700058AAE /* CustomButton+UIButton.swift in Sources */,
 				32A7F62E26368B1D00058AAE /* RockModel.swift in Sources */,
 				32A7F581263521D100058AAE /* AppDelegate.swift in Sources */,
-				32A7F5F12636489400058AAE /* RockTableViewCell.swift in Sources */,
 				32A7F5EA2636487200058AAE /* ImageTableViewCell.swift in Sources */,
 				32A7F583263521D100058AAE /* SceneDelegate.swift in Sources */,
 				32A7F5BF263523ED00058AAE /* MapViewController.swift in Sources */,
