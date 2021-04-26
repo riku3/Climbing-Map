@@ -32,7 +32,7 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-X1-O3d" customClass="CustomButton" customModule="Climbing_Map" customModuleProvider="target">
                         <rect key="frame" x="5" y="78" width="144" height="33"/>
                         <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
-                        <state key="normal" title="SOTOIWA">
+                        <state key="normal" title="Youtube">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
                         <userDefinedRuntimeAttributes>
@@ -41,7 +41,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                         <connections>
-                            <action selector="tappedSOTOIWA:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="enQ-Pj-WDg"/>
+                            <action selector="tappedYoutube:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Y43-Jc-mKA"/>
                         </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-Rp-wck" customClass="CustomButton" customModule="Climbing_Map" customModuleProvider="target">
@@ -88,7 +88,7 @@
             <size key="intrinsicContentSize" width="69" height="30"/>
         </designable>
         <designable name="qhS-X1-O3d">
-            <size key="intrinsicContentSize" width="68" height="30"/>
+            <size key="intrinsicContentSize" width="57" height="30"/>
         </designable>
     </designables>
     <resources>

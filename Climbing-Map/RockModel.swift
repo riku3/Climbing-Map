@@ -10,13 +10,13 @@ import Foundation
 class RockModel : NSObject {
     var name: String
     var grade: String
-    var sotoiwaURL: String
+    var youtubeURL: String
     var instagramURL: String
 
-    init(name: String, grade: String, sotoiwaURL: String, instagramURL: String){
+    init(name: String, grade: String, youtubeURL: String, instagramURL: String){
         self.name = name as String
         self.grade = grade as String
-        self.sotoiwaURL = sotoiwaURL as String
+        self.youtubeURL = youtubeURL as String
         self.instagramURL = instagramURL as String
     }
 }

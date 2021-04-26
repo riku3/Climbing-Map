@@ -24,14 +24,14 @@ class MapDetailViewController: UIViewController {
     
     func setupRocks() {
         rocks = [
-            RockModel(name: "彩雨", grade: "初段", sotoiwaURL: "", instagramURL: ""),
-            RockModel(name: "嶺の夕", grade: "1級", sotoiwaURL: "", instagramURL: ""),
-            RockModel(name: "NewSoul", grade: "2級", sotoiwaURL: "", instagramURL: ""),
-            RockModel(name: "日陰者", grade: "4級", sotoiwaURL: "", instagramURL: ""),
-            RockModel(name: "彩雨", grade: "初段", sotoiwaURL: "", instagramURL: ""),
-            RockModel(name: "嶺の夕", grade: "1級", sotoiwaURL: "", instagramURL: ""),
-            RockModel(name: "NewSoul", grade: "2級", sotoiwaURL: "", instagramURL: ""),
-            RockModel(name: "日陰者", grade: "4級", sotoiwaURL: "", instagramURL: "")]
+            RockModel(name: "彩雨", grade: "初段", youtubeURL: "", instagramURL: ""),
+            RockModel(name: "嶺の夕", grade: "1級", youtubeURL: "", instagramURL: ""),
+            RockModel(name: "NewSoul", grade: "2級", youtubeURL: "", instagramURL: ""),
+            RockModel(name: "日陰者", grade: "4級", youtubeURL: "", instagramURL: ""),
+            RockModel(name: "彩雨", grade: "初段", youtubeURL: "", instagramURL: ""),
+            RockModel(name: "嶺の夕", grade: "1級", youtubeURL: "", instagramURL: ""),
+            RockModel(name: "NewSoul", grade: "2級", youtubeURL: "", instagramURL: ""),
+            RockModel(name: "日陰者", grade: "4級", youtubeURL: "", instagramURL: "")]
     }
 }
 
@@ -71,11 +71,15 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MapDetailViewController: MovieTappedDelegate {
-    func tappedSOTOIWA(name: String) {
-        dismiss(animated: true, completion: nil)
+    func tappedYoutube(name: String) {
+//        dismiss(animated: true, completion: nil)
+        let webview = WKWebviewController()
+        webview.name = name
+        webview.isYoutube = true
+        present(webview, animated: true, completion: nil)
     }
     
     func tappedInstagram(name: String) {
-        dismiss(animated: true, completion: nil)
+//        dismiss(animated: true, completion: nil)
     }
 }
