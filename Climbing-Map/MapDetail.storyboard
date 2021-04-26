@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Map Detail View Controller-->
+        <scene sceneID="RyZ-hz-38G">
+            <objects>
+                <viewController storyboardIdentifier="MapDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Wbc-71-abP" customClass="MapDetailViewController" customModule="Climbing_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ezr-OT-cil">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="tDS-Nb-bo6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Wbc-71-abP" id="PX8-NU-K5O"/>
+                                    <outlet property="delegate" destination="Wbc-71-abP" id="xod-0Z-B6R"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="RM8-eN-2xr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tDS-Nb-bo6" firstAttribute="top" secondItem="ezr-OT-cil" secondAttribute="top" id="8Dv-ks-jCz"/>
+                            <constraint firstItem="tDS-Nb-bo6" firstAttribute="leading" secondItem="RM8-eN-2xr" secondAttribute="leading" id="PTG-if-Heu"/>
+                            <constraint firstItem="tDS-Nb-bo6" firstAttribute="trailing" secondItem="RM8-eN-2xr" secondAttribute="trailing" id="XtO-91-mzl"/>
+                            <constraint firstItem="tDS-Nb-bo6" firstAttribute="bottom" secondItem="RM8-eN-2xr" secondAttribute="bottom" id="jn4-UU-vrz"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapDetailTableView" destination="tDS-Nb-bo6" id="2LN-98-mz0"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5r3-gQ-AMa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-340.57971014492756" y="-30.133928571428569"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
