@@ -42,6 +42,10 @@ class MapDetailViewController: UIViewController {
             RockModel(name: "彩雨", grade: "初段", sotoiwaURL: "", instagramURL: ""),
             RockModel(name: "嶺の夕", grade: "1級", sotoiwaURL: "", instagramURL: ""),
             RockModel(name: "NewSoul", grade: "2級", sotoiwaURL: "", instagramURL: ""),
+            RockModel(name: "日陰者", grade: "4級", sotoiwaURL: "", instagramURL: ""),
+            RockModel(name: "彩雨", grade: "初段", sotoiwaURL: "", instagramURL: ""),
+            RockModel(name: "嶺の夕", grade: "1級", sotoiwaURL: "", instagramURL: ""),
+            RockModel(name: "NewSoul", grade: "2級", sotoiwaURL: "", instagramURL: ""),
             RockModel(name: "日陰者", grade: "4級", sotoiwaURL: "", instagramURL: "")]
     }
 }

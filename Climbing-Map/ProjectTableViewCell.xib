@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -18,44 +19,54 @@
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="grade" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tTx-zQ-TNQ">
                         <rect key="frame" x="5" y="6" width="199" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="projectName" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VK7-18-R6D">
-                        <rect key="frame" x="110.5" y="27" width="99" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
+                        <rect key="frame" x="91" y="33" width="138.5" height="30"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-X1-O3d">
-                        <rect key="frame" x="0.0" y="63" width="160" height="58"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-X1-O3d" customClass="CustomButton" customModule="Climbing_Map" customModuleProvider="target">
+                        <rect key="frame" x="5" y="78" width="144" height="33"/>
+                        <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                         <state key="normal" title="SOTOIWA">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-Rp-wck">
-                        <rect key="frame" x="160" y="63" width="160" height="58"/>
-                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-Rp-wck" customClass="CustomButton" customModule="Climbing_Map" customModuleProvider="target">
+                        <rect key="frame" x="171" y="78" width="144" height="33"/>
+                        <color key="backgroundColor" systemColor="tertiaryLabelColor"/>
                         <state key="normal" title="Instagram">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="10"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qhS-X1-O3d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2pU-wq-P0T"/>
+                    <constraint firstItem="qhS-X1-O3d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="2pU-wq-P0T"/>
                     <constraint firstItem="tTx-zQ-TNQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="9Bw-Ni-woM"/>
-                    <constraint firstAttribute="bottom" secondItem="qhS-X1-O3d" secondAttribute="bottom" id="FHt-1L-bN7"/>
-                    <constraint firstAttribute="trailing" secondItem="YAW-Rp-wck" secondAttribute="trailing" id="JWQ-pW-HdD"/>
-                    <constraint firstItem="YAW-Rp-wck" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="Oe2-fx-Gak"/>
+                    <constraint firstAttribute="bottom" secondItem="qhS-X1-O3d" secondAttribute="bottom" constant="10" id="FHt-1L-bN7"/>
+                    <constraint firstAttribute="trailing" secondItem="YAW-Rp-wck" secondAttribute="trailing" constant="5" id="JWQ-pW-HdD"/>
+                    <constraint firstItem="YAW-Rp-wck" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.45" id="Oe2-fx-Gak"/>
                     <constraint firstItem="qhS-X1-O3d" firstAttribute="top" secondItem="VK7-18-R6D" secondAttribute="bottom" constant="15" id="Xf4-Y0-7ro"/>
                     <constraint firstItem="tTx-zQ-TNQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="aHo-bl-tvX" userLabel="grade.top = top"/>
-                    <constraint firstAttribute="bottom" secondItem="YAW-Rp-wck" secondAttribute="bottom" id="gnP-mn-mVU"/>
+                    <constraint firstAttribute="bottom" secondItem="YAW-Rp-wck" secondAttribute="bottom" constant="10" id="gnP-mn-mVU"/>
                     <constraint firstItem="VK7-18-R6D" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="iOi-Ob-aGi"/>
                     <constraint firstItem="YAW-Rp-wck" firstAttribute="top" secondItem="VK7-18-R6D" secondAttribute="bottom" constant="15" id="l1c-ei-gxl"/>
                     <constraint firstItem="VK7-18-R6D" firstAttribute="top" secondItem="tTx-zQ-TNQ" secondAttribute="bottom" constant="3" id="oQA-Xa-8jo"/>
-                    <constraint firstItem="qhS-X1-O3d" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.5" id="vVc-NX-mWB"/>
+                    <constraint firstItem="qhS-X1-O3d" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.45" id="vVc-NX-mWB"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -66,4 +77,17 @@
             <point key="canvasLocation" x="137.68115942028987" y="94.754464285714278"/>
         </tableViewCell>
     </objects>
+    <designables>
+        <designable name="YAW-Rp-wck">
+            <size key="intrinsicContentSize" width="69" height="30"/>
+        </designable>
+        <designable name="qhS-X1-O3d">
+            <size key="intrinsicContentSize" width="68" height="30"/>
+        </designable>
+    </designables>
+    <resources>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
