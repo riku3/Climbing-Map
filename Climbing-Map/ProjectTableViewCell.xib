@@ -40,6 +40,9 @@
                                 <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="tappedSOTOIWA:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="enQ-Pj-WDg"/>
+                        </connections>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-Rp-wck" customClass="CustomButton" customModule="Climbing_Map" customModuleProvider="target">
                         <rect key="frame" x="171" y="78" width="144" height="33"/>
@@ -52,6 +55,9 @@
                                 <real key="value" value="10"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
+                        <connections>
+                            <action selector="tappedInstagram:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HDf-i9-Jas"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>

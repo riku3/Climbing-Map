@@ -7,10 +7,25 @@
 
 import UIKit
 
+protocol MovieTappedDelegate: class {
+    func tappedSOTOIWA()
+    func tappedInstagram()
+}
+
 class ProjectTableViewCell: UITableViewCell {
+    
+    weak var movieDelegate: MovieTappedDelegate?
 
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var name: UILabel!
+    
+    @IBAction func tappedSOTOIWA(_ sender: CustomButton) {
+        movieDelegate?.tappedSOTOIWA()
+    }
+    
+    @IBAction func tappedInstagram(_ sender: CustomButton) {
+        movieDelegate?.tappedInstagram()
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()

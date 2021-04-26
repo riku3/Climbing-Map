@@ -54,6 +54,7 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell
+            cell.movieDelegate = self
             cell.setProject(project: rocks[indexPath.row - 1])
             return cell
         }
@@ -66,5 +67,15 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             return 130
         }
+    }
+}
+
+extension MapDetailViewController: MovieTappedDelegate {
+    func tappedSOTOIWA() {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    func tappedInstagram() {
+        dismiss(animated: true, completion: nil)
     }
 }
