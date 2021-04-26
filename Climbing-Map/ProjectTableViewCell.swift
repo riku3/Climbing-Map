@@ -34,7 +34,7 @@ class ProjectTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProject(project: RockModel) {
+    func setProject(project: ProjectModel) {
         self.name.text = project.name as String
         self.grade.text = project.grade as String
     }

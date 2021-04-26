@@ -11,7 +11,7 @@ class MapDetailViewController: UIViewController {
     
     @IBOutlet weak var mapDetailTableView: UITableView!
     
-    var rocks:[RockModel] = [RockModel]()
+    var rock: RockModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,15 +23,15 @@ class MapDetailViewController: UIViewController {
     }
     
     func setupRocks() {
-        rocks = [
-            RockModel(name: "彩雨", grade: "初段"),
-            RockModel(name: "嶺の夕", grade: "1級"),
-            RockModel(name: "NewSoul", grade: "2級"),
-            RockModel(name: "日陰者", grade: "4級"),
-            RockModel(name: "彩雨", grade: "初段"),
-            RockModel(name: "嶺の夕", grade: "1級"),
-            RockModel(name: "NewSoul", grade: "2級"),
-            RockModel(name: "日陰者", grade: "4級")]
+        rock = RockModel(name: "日陰岩",projects: [
+                            ProjectModel(name: "彩雨", grade: "初段"),
+                            ProjectModel(name: "嶺の夕", grade: "1級"),
+                            ProjectModel(name: "NewSoul", grade: "2級"),
+                            ProjectModel(name: "日陰者", grade: "4級"),
+                            ProjectModel(name: "彩雨", grade: "初段"),
+                            ProjectModel(name: "嶺の夕", grade: "1級"),
+                            ProjectModel(name: "NewSoul", grade: "2級"),
+                            ProjectModel(name: "日陰者", grade: "4級")])
     }
 }
 
@@ -43,19 +43,19 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return rocks.count + 1
+        return rock.projects.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
-            cell.setRock(name: "日陰岩")
+            cell.setRock(name: rock.name)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell
             cell.movieDelegate = self
-            cell.setProject(project: rocks[indexPath.row - 1])
+            cell.setProject(project: rock.projects[indexPath.row])
             return cell
         }
     }
