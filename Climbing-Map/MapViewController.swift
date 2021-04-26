@@ -117,10 +117,11 @@ extension MapViewController: MKMapViewDelegate {
     // ピン押下時
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation{
-            let mapDetailVC = MapDetailViewController()
+            let mapDetailVC = MapDetailViewController.fromStoryboard()
             fpc.show()
             fpc.set(contentViewController: mapDetailVC)
             fpc.addPanel(toParent: self)
+            fpc.track(scrollView: mapDetailVC.mapDetailTableView)
         }
     }
 }

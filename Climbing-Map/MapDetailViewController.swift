@@ -12,18 +12,18 @@ class MapDetailViewController: UIViewController {
     @IBOutlet weak var mapDetailTableView: UITableView!
     
     enum Cell: Int, CaseIterable {
-            case imageCustomViewCell
-            case rockCustomViewCell
-            case projectCustomViewCell
+        case imageCustomViewCell
+        case rockCustomViewCell
+        case projectCustomViewCell
 
-            var cellIdentifier: String {
-                switch self {
-                case .imageCustomViewCell: return "ImageTableViewCell"
-                case .rockCustomViewCell: return "RockTableViewCell"
-                case .projectCustomViewCell: return "ProjectTableViewCell"
-                }
+        var cellIdentifier: String {
+            switch self {
+            case .imageCustomViewCell: return "ImageTableViewCell"
+            case .rockCustomViewCell: return "RockTableViewCell"
+            case .projectCustomViewCell: return "ProjectTableViewCell"
             }
         }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +36,11 @@ class MapDetailViewController: UIViewController {
 
 extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
+    static func fromStoryboard(_ storyboard: UIStoryboard = UIStoryboard(name: "MapDetail", bundle: nil)) -> MapDetailViewController {
+        let controller = storyboard.instantiateViewController(withIdentifier: "MapDetailViewController") as! MapDetailViewController
+        return controller
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return Cell.allCases.count
     }
