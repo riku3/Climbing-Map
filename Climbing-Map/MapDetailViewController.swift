@@ -59,4 +59,17 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
     }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        let cellType = Cell(rawValue: indexPath.row)!
+        switch cellType {
+        case .imageCustomViewCell:
+            // TODO: 画像更新 aspect fill & clip bouns
+            return 170
+        case .rockCustomViewCell:
+            return 50
+        case .projectCustomViewCell:
+            return 130
+        }
+    }
 }
