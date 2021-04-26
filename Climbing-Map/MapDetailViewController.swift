@@ -24,14 +24,14 @@ class MapDetailViewController: UIViewController {
     
     func setupRocks() {
         rocks = [
-            RockModel(name: "彩雨", grade: "初段", youtubeURL: "", instagramURL: ""),
-            RockModel(name: "嶺の夕", grade: "1級", youtubeURL: "", instagramURL: ""),
-            RockModel(name: "NewSoul", grade: "2級", youtubeURL: "", instagramURL: ""),
-            RockModel(name: "日陰者", grade: "4級", youtubeURL: "", instagramURL: ""),
-            RockModel(name: "彩雨", grade: "初段", youtubeURL: "", instagramURL: ""),
-            RockModel(name: "嶺の夕", grade: "1級", youtubeURL: "", instagramURL: ""),
-            RockModel(name: "NewSoul", grade: "2級", youtubeURL: "", instagramURL: ""),
-            RockModel(name: "日陰者", grade: "4級", youtubeURL: "", instagramURL: "")]
+            RockModel(name: "彩雨", grade: "初段"),
+            RockModel(name: "嶺の夕", grade: "1級"),
+            RockModel(name: "NewSoul", grade: "2級"),
+            RockModel(name: "日陰者", grade: "4級"),
+            RockModel(name: "彩雨", grade: "初段"),
+            RockModel(name: "嶺の夕", grade: "1級"),
+            RockModel(name: "NewSoul", grade: "2級"),
+            RockModel(name: "日陰者", grade: "4級")]
     }
 }
 
