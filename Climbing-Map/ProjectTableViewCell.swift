@@ -8,8 +8,8 @@
 import UIKit
 
 protocol MovieTappedDelegate: class {
-    func tappedSOTOIWA()
-    func tappedInstagram()
+    func tappedSOTOIWA(name: String)
+    func tappedInstagram(name: String)
 }
 
 class ProjectTableViewCell: UITableViewCell {
@@ -20,11 +20,11 @@ class ProjectTableViewCell: UITableViewCell {
     @IBOutlet weak var name: UILabel!
     
     @IBAction func tappedSOTOIWA(_ sender: CustomButton) {
-        movieDelegate?.tappedSOTOIWA()
+        movieDelegate?.tappedSOTOIWA(name: self.name.text!)
     }
     
     @IBAction func tappedInstagram(_ sender: CustomButton) {
-        movieDelegate?.tappedInstagram()
+        movieDelegate?.tappedInstagram(name: self.name.text!)
     }
     
     override func awakeFromNib() {

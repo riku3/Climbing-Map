@@ -71,11 +71,11 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MapDetailViewController: MovieTappedDelegate {
-    func tappedSOTOIWA() {
+    func tappedSOTOIWA(name: String) {
         dismiss(animated: true, completion: nil)
     }
     
-    func tappedInstagram() {
+    func tappedInstagram(name: String) {
         dismiss(animated: true, completion: nil)
     }
 }
