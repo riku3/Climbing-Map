@@ -23,7 +23,8 @@ class MapDetailViewController: UIViewController {
     }
     
     func setupRocks() {
-        rock = RockModel(name: "日陰岩",projects: [
+        rock = RockModel(name: "日陰岩",
+                         projects: [
                             ProjectModel(name: "彩雨", grade: "初段"),
                             ProjectModel(name: "嶺の夕", grade: "1級"),
                             ProjectModel(name: "NewSoul", grade: "2級"),
@@ -31,7 +32,8 @@ class MapDetailViewController: UIViewController {
                             ProjectModel(name: "彩雨", grade: "初段"),
                             ProjectModel(name: "嶺の夕", grade: "1級"),
                             ProjectModel(name: "NewSoul", grade: "2級"),
-                            ProjectModel(name: "日陰者", grade: "4級")])
+                            ProjectModel(name: "日陰者", grade: "4級")
+                         ])
     }
 }
 
@@ -72,7 +74,6 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension MapDetailViewController: MovieTappedDelegate {
     func tappedYoutube(name: String) {
-//        dismiss(animated: true, completion: nil)
         let webview = WKWebviewController()
         webview.name = name
         webview.isYoutube = true
@@ -80,6 +81,9 @@ extension MapDetailViewController: MovieTappedDelegate {
     }
     
     func tappedInstagram(name: String) {
-//        dismiss(animated: true, completion: nil)
+        let webview = WKWebviewController()
+        webview.name = name
+        webview.isYoutube = false
+        present(webview, animated: true, completion: nil)
     }
 }

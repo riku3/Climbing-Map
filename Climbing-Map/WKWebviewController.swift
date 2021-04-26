@@ -23,20 +23,20 @@ class WKWebviewController: UIViewController {
         
 
         if isYoutube {
-            let urlString: String = "https://www.youtube.com/results?search_query=" + String(describing: name!)
+            let urlString = "https://www.youtube.com/results?search_query=" + name
             let encodeUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-
-            print(encodeUrlString)
             if let url = URL(string: encodeUrlString!) {
-                print(url)
                 let request = URLRequest(url: url)
                 webView.load(request)
             }
-            print("not")
         } else {
-            let request = URLRequest(url: URL(string: "https://www.instagram.com/explore/tags/\(String(describing: name!))/?hl=ja")!)
-            webView.load(request)
+            // Instagram
+            let urlString = "https://www.instagram.com/explore/tags/" + name
+            let encodeUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            if let url = URL(string: encodeUrlString!) {
+                let request = URLRequest(url: url)
+                webView.load(request)
+            }
         }
-//        webView.load(request)
     }
 }
