@@ -15,6 +15,13 @@
 		32A7F5BF263523ED00058AAE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5BE263523ED00058AAE /* MapViewController.swift */; };
 		32A7F5C42635241400058AAE /* Map.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5C32635241400058AAE /* Map.storyboard */; };
 		32A7F5DF26358D3800058AAE /* MapDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */; };
+		32A7F5E42636471A00058AAE /* MapDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5E32636471A00058AAE /* MapDetail.storyboard */; };
+		32A7F5EA2636487200058AAE /* ImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5E82636487200058AAE /* ImageTableViewCell.swift */; };
+		32A7F5EB2636487200058AAE /* ImageTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5E92636487200058AAE /* ImageTableViewCell.xib */; };
+		32A7F5F12636489400058AAE /* RockTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5EF2636489400058AAE /* RockTableViewCell.swift */; };
+		32A7F5F22636489400058AAE /* RockTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5F02636489400058AAE /* RockTableViewCell.xib */; };
+		32A7F5F8263648A000058AAE /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */; };
+		32A7F5F9263648A000058AAE /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */; };
 		B8BC1B57780B488BD4AFC16D /* Pods_Climbing_MapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653DE97E1CBACF9F5D878ECE /* Pods_Climbing_MapTests.framework */; };
 		C11E06E069B0A853EEF34E58 /* Pods_Climbing_Map_Climbing_MapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF3DD622CF684FBD0DB7FF /* Pods_Climbing_Map_Climbing_MapUITests.framework */; };
 		D98EDFACF6260AD3407926B9 /* Pods_Climbing_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FC8F96D79F04F7C146A92 /* Pods_Climbing_Map.framework */; };
@@ -53,6 +60,13 @@
 		32A7F5BE263523ED00058AAE /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		32A7F5C32635241400058AAE /* Map.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Map.storyboard; sourceTree = "<group>"; };
 		32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDetailViewController.swift; sourceTree = "<group>"; };
+		32A7F5E32636471A00058AAE /* MapDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapDetail.storyboard; sourceTree = "<group>"; };
+		32A7F5E82636487200058AAE /* ImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTableViewCell.swift; sourceTree = "<group>"; };
+		32A7F5E92636487200058AAE /* ImageTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageTableViewCell.xib; sourceTree = "<group>"; };
+		32A7F5EF2636489400058AAE /* RockTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockTableViewCell.swift; sourceTree = "<group>"; };
+		32A7F5F02636489400058AAE /* RockTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RockTableViewCell.xib; sourceTree = "<group>"; };
+		32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
+		32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		54364B952E5F002E2F7E9FE2 /* Pods-Climbing-MapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-MapTests.release.xcconfig"; path = "Target Support Files/Pods-Climbing-MapTests/Pods-Climbing-MapTests.release.xcconfig"; sourceTree = "<group>"; };
 		653DE97E1CBACF9F5D878ECE /* Pods_Climbing_MapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Climbing_MapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		912DE7DFC1DB1FC43666E0AB /* Pods-Climbing-Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-Map.release.xcconfig"; path = "Target Support Files/Pods-Climbing-Map/Pods-Climbing-Map.release.xcconfig"; sourceTree = "<group>"; };
@@ -136,6 +150,13 @@
 				32A7F5BE263523ED00058AAE /* MapViewController.swift */,
 				32A7F5C32635241400058AAE /* Map.storyboard */,
 				32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */,
+				32A7F5E32636471A00058AAE /* MapDetail.storyboard */,
+				32A7F5E82636487200058AAE /* ImageTableViewCell.swift */,
+				32A7F5E92636487200058AAE /* ImageTableViewCell.xib */,
+				32A7F5EF2636489400058AAE /* RockTableViewCell.swift */,
+				32A7F5F02636489400058AAE /* RockTableViewCell.xib */,
+				32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */,
+				32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */,
 			);
 			path = "Climbing-Map";
 			sourceTree = "<group>";
@@ -277,7 +298,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				32A7F58A263521D400058AAE /* Assets.xcassets in Resources */,
+				32A7F5F9263648A000058AAE /* ProjectTableViewCell.xib in Resources */,
+				32A7F5EB2636487200058AAE /* ImageTableViewCell.xib in Resources */,
 				32A7F5C42635241400058AAE /* Map.storyboard in Resources */,
+				32A7F5F22636489400058AAE /* RockTableViewCell.xib in Resources */,
+				32A7F5E42636471A00058AAE /* MapDetail.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -406,7 +431,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				32A7F5DF26358D3800058AAE /* MapDetailViewController.swift in Sources */,
+				32A7F5F8263648A000058AAE /* ProjectTableViewCell.swift in Sources */,
 				32A7F581263521D100058AAE /* AppDelegate.swift in Sources */,
+				32A7F5F12636489400058AAE /* RockTableViewCell.swift in Sources */,
+				32A7F5EA2636487200058AAE /* ImageTableViewCell.swift in Sources */,
 				32A7F583263521D100058AAE /* SceneDelegate.swift in Sources */,
 				32A7F5BF263523ED00058AAE /* MapViewController.swift in Sources */,
 			);

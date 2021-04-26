@@ -9,6 +9,8 @@ import UIKit
 
 class MapDetailViewController: UIViewController {
     
+    @IBOutlet weak var mapDetailTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

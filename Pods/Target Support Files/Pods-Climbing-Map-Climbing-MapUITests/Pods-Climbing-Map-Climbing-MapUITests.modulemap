@@ -1,0 +1,6 @@
+framework module Pods_Climbing_Map_Climbing_MapUITests {
+  umbrella header "Pods-Climbing-Map-Climbing-MapUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
