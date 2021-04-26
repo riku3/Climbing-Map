@@ -66,7 +66,7 @@ class MapViewController: UIViewController {
     private func setPinToMap() {
         // 岩ピン生成(Mock)
         let rock = MKPointAnnotation()
-        rock.title = "嶺の夕"
+        rock.title = "日陰岩"
         rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
         rock.coordinate = CLLocationCoordinate2D(latitude: 35.801301, longitude: 139.945875)
         mapView.addAnnotation(rock)

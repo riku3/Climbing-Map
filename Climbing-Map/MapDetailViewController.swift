@@ -11,6 +11,8 @@ class MapDetailViewController: UIViewController {
     
     @IBOutlet weak var mapDetailTableView: UITableView!
     
+    var rocks:[RockModel] = [RockModel]()
+    
     enum Cell: Int, CaseIterable {
         case imageCustomViewCell
         case rockCustomViewCell
@@ -31,6 +33,16 @@ class MapDetailViewController: UIViewController {
         mapDetailTableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableViewCell")
         mapDetailTableView.register(UINib(nibName: "RockTableViewCell", bundle: nil), forCellReuseIdentifier: "RockTableViewCell")
         mapDetailTableView.register(UINib(nibName: "ProjectTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectTableViewCell")
+        
+        self.setupRocks()
+    }
+    
+    func setupRocks() {
+        rocks = [
+            RockModel(name: "彩雨", grade: "初段", sotoiwaURL: "", instagramURL: ""),
+            RockModel(name: "嶺の夕", grade: "1級", sotoiwaURL: "", instagramURL: ""),
+            RockModel(name: "NewSoul", grade: "2級", sotoiwaURL: "", instagramURL: ""),
+            RockModel(name: "日陰者", grade: "4級", sotoiwaURL: "", instagramURL: "")]
     }
 }
 
@@ -42,33 +54,32 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return Cell.allCases.count
+        return rocks.count + 2
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellType = Cell(rawValue: indexPath.row)!
-        switch cellType {
-        case .imageCustomViewCell:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier) as! ImageTableViewCell
+        switch indexPath.row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
             return cell
-        case .rockCustomViewCell:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier) as! RockTableViewCell
+        case 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "RockTableViewCell") as! RockTableViewCell
+            cell.setRock(name: "日陰岩")
             return cell
-        case .projectCustomViewCell:
-            let cell = tableView.dequeueReusableCell(withIdentifier: cellType.cellIdentifier) as! ProjectTableViewCell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell
+            cell.setProject(project: rocks[indexPath.row - 2])
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        let cellType = Cell(rawValue: indexPath.row)!
-        switch cellType {
-        case .imageCustomViewCell:
-            // TODO: 画像更新 aspect fill & clip bouns
+        switch indexPath.row {
+        case 0:
             return 170
-        case .rockCustomViewCell:
+        case 1:
             return 50
-        case .projectCustomViewCell:
+        default:
             return 130
         }
     }

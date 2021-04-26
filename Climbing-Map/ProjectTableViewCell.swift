@@ -9,6 +9,9 @@ import UIKit
 
 class ProjectTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var grade: UILabel!
+    @IBOutlet weak var name: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -17,4 +20,8 @@ class ProjectTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    func setProject(project: RockModel) {
+        self.name.text = project.name as String
+        self.grade.text = project.grade as String
+    }
 }
