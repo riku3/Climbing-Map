@@ -9,10 +9,14 @@ import Foundation
 
 class RockModel : NSObject {
     var name: String
+    var longitude: Double
+    var latitude: Double
     var projects: [ProjectModel]
 
-    init(name: String, projects: [ProjectModel]){
+    init(name: String, longitude: Double, latitude: Double, projects: [ProjectModel]){
         self.name = name as String
+        self.longitude = longitude as Double
+        self.latitude = latitude as Double
         self.projects = projects as [ProjectModel]
     }
 }

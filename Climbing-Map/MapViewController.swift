@@ -18,6 +18,7 @@ class MapViewController: UIViewController {
     var locationManager: CLLocationManager!
     var onceNowLocationFlag = true
     var fpc = FloatingPanelController()
+    var rockList: [RockModel] = [RockModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,9 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         mapView.delegate = self
         fpc.delegate = self
+        
+        // TODO: 方角表示(追従されるため実装方法を工夫する必要あり)
+//        mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
     }
     
     @IBAction func tappedLocationBtn(_ sender: UIButton) {
@@ -64,13 +68,42 @@ class MapViewController: UIViewController {
     
     // ピンをセットする
     private func setPinToMap() {
-        // 岩ピン生成(Mock)
-        let rock = MKPointAnnotation()
-        rock.title = "日陰岩"
-        // サブタイトル
-//        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
-        rock.coordinate = CLLocationCoordinate2D(latitude: 35.801301, longitude: 139.945875)
-        mapView.addAnnotation(rock)
+        // TODO: APIより岩情報を取得 start
+        rockList.append(RockModel(name: "日陰岩", longitude: 139.948359, latitude: 35.801884,
+                                  projects: [
+                                     ProjectModel(name: "彩雨", grade: "初段"),
+                                     ProjectModel(name: "嶺の夕", grade: "1級"),
+                                     ProjectModel(name: "NewSoul", grade: "2級"),
+                                     ProjectModel(name: "日陰者", grade: "4級")
+                                  ]))
+        rockList.append(RockModel(name: "忍者返し岩", longitude: 139.9503226, latitude: 35.8042616,
+                                  projects: [
+                                    ProjectModel(name: "蟹虫", grade: "四段"),
+                                    ProjectModel(name: "蜥蜴（トカゲ）", grade: "四段"),
+                                    ProjectModel(name: "蟹亀返し", grade: "四段ー"),
+                                    ProjectModel(name: "蛙", grade: "三段"),
+                                    ProjectModel(name: "虫", grade: "三段"),
+                                    ProjectModel(name: "肺魚", grade: "二段"),
+                                    ProjectModel(name: "蟹", grade: "二段"),
+                                    ProjectModel(name: "亀クライマー返し", grade: "二段"),
+                                    ProjectModel(name: "忍者クライマー返し", grade: "二段"),
+                                    ProjectModel(name: "素上り", grade: "初段"),
+                                    ProjectModel(name: "クライマー返し", grade: "初段"),
+                                    ProjectModel(name: "子供返し", grade: "初段"),
+                                    ProjectModel(name: "亀返し", grade: "初段"),
+                                    ProjectModel(name: "忍者返し", grade: "1級")
+                                  ]))
+        // TODO: APIより岩情報を取得 end
+        
+        for rock in rockList {
+            // 岩ピン生成(Mock)
+            let pinRock = MKPointAnnotation()
+            pinRock.title = rock.name
+            // サブタイトル
+    //        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
+            pinRock.coordinate = CLLocationCoordinate2D(latitude: rock.latitude, longitude: rock.longitude)
+            mapView.addAnnotation(pinRock)
+        }
     }
 }
 
@@ -117,8 +150,14 @@ extension MapViewController: MKMapViewDelegate {
     
     // ピン押下時
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        if let annotation = view.annotation{
+        if let annotation = view.annotation {
             let mapDetailVC = MapDetailViewController.fromStoryboard()
+            for rock in rockList {
+                if annotation.title == rock.name {
+                    mapDetailVC.rock = rock
+                    break
+                }
+            }
             fpc.show()
             let appearance = SurfaceAppearance()
             appearance.cornerRadius = 9.0
