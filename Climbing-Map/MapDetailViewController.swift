@@ -18,22 +18,6 @@ class MapDetailViewController: UIViewController {
         
         mapDetailTableView.register(UINib(nibName: "ImageTableViewCell", bundle: nil), forCellReuseIdentifier: "ImageTableViewCell")
         mapDetailTableView.register(UINib(nibName: "ProjectTableViewCell", bundle: nil), forCellReuseIdentifier: "ProjectTableViewCell")
-        
-        self.setupRocks()
-    }
-    
-    func setupRocks() {
-        rock = RockModel(name: "日陰岩",
-                         projects: [
-                            ProjectModel(name: "彩雨", grade: "初段"),
-                            ProjectModel(name: "嶺の夕", grade: "1級"),
-                            ProjectModel(name: "NewSoul", grade: "2級"),
-                            ProjectModel(name: "日陰者", grade: "4級"),
-                            ProjectModel(name: "彩雨", grade: "初段"),
-                            ProjectModel(name: "嶺の夕", grade: "1級"),
-                            ProjectModel(name: "NewSoul", grade: "2級"),
-                            ProjectModel(name: "日陰者", grade: "4級")
-                         ])
     }
 }
 
