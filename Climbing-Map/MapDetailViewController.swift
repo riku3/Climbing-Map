@@ -76,14 +76,6 @@ extension MapDetailViewController: MovieTappedDelegate {
     func tappedYoutube(name: String) {
         let webview = WKWebviewController()
         webview.name = name
-        webview.isYoutube = true
-        present(webview, animated: true, completion: nil)
-    }
-    
-    func tappedInstagram(name: String) {
-        let webview = WKWebviewController()
-        webview.name = name
-        webview.isYoutube = false
         present(webview, animated: true, completion: nil)
     }
 }

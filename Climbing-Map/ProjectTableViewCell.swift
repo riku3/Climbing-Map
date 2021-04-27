@@ -9,7 +9,6 @@ import UIKit
 
 protocol MovieTappedDelegate: class {
     func tappedYoutube(name: String)
-    func tappedInstagram(name: String)
 }
 
 class ProjectTableViewCell: UITableViewCell {
@@ -21,9 +20,6 @@ class ProjectTableViewCell: UITableViewCell {
     
     @IBAction func tappedYoutube(_ sender: CustomButton) {
         movieDelegate?.tappedYoutube(name: self.name.text!)
-    }
-    @IBAction func tappedInstagram(_ sender: CustomButton) {
-        movieDelegate?.tappedInstagram(name: self.name.text!)
     }
     
     override func awakeFromNib() {

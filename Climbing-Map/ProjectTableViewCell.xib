@@ -29,8 +29,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qhS-X1-O3d" customClass="CustomButton" customModule="Climbing_Map" customModuleProvider="target">
-                        <rect key="frame" x="5" y="78" width="144" height="33"/>
-                        <color key="backgroundColor" red="1" green="0.38541409209671873" blue="0.40551409850627396" alpha="0.68230118968861087" colorSpace="custom" customColorSpace="displayP3"/>
+                        <rect key="frame" x="32" y="78" width="256" height="33"/>
+                        <color key="backgroundColor" red="1" green="0.22452274504382208" blue="0.18501360496146091" alpha="0.67000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                         <state key="normal" title="Youtube">
                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -44,36 +44,16 @@
                             <action selector="tappedYoutube:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Y43-Jc-mKA"/>
                         </connections>
                     </button>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YAW-Rp-wck" customClass="CustomButton" customModule="Climbing_Map" customModuleProvider="target">
-                        <rect key="frame" x="171" y="78" width="144" height="33"/>
-                        <color key="backgroundColor" red="1" green="0.73389659945577745" blue="0.53975666707383607" alpha="0.68230118968861087" colorSpace="custom" customColorSpace="displayP3"/>
-                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                        <state key="normal" title="Instagram">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="tappedInstagram:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="HDf-i9-Jas"/>
-                        </connections>
-                    </button>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="qhS-X1-O3d" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="2pU-wq-P0T"/>
                     <constraint firstItem="tTx-zQ-TNQ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="9Bw-Ni-woM"/>
                     <constraint firstAttribute="bottom" secondItem="qhS-X1-O3d" secondAttribute="bottom" constant="10" id="FHt-1L-bN7"/>
-                    <constraint firstAttribute="trailing" secondItem="YAW-Rp-wck" secondAttribute="trailing" constant="5" id="JWQ-pW-HdD"/>
-                    <constraint firstItem="YAW-Rp-wck" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.45" id="Oe2-fx-Gak"/>
+                    <constraint firstItem="qhS-X1-O3d" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="OIk-4r-feI"/>
                     <constraint firstItem="qhS-X1-O3d" firstAttribute="top" secondItem="VK7-18-R6D" secondAttribute="bottom" constant="15" id="Xf4-Y0-7ro"/>
                     <constraint firstItem="tTx-zQ-TNQ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="aHo-bl-tvX" userLabel="grade.top = top"/>
-                    <constraint firstAttribute="bottom" secondItem="YAW-Rp-wck" secondAttribute="bottom" constant="10" id="gnP-mn-mVU"/>
                     <constraint firstItem="VK7-18-R6D" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="iOi-Ob-aGi"/>
-                    <constraint firstItem="YAW-Rp-wck" firstAttribute="top" secondItem="VK7-18-R6D" secondAttribute="bottom" constant="15" id="l1c-ei-gxl"/>
                     <constraint firstItem="VK7-18-R6D" firstAttribute="top" secondItem="tTx-zQ-TNQ" secondAttribute="bottom" constant="3" id="oQA-Xa-8jo"/>
-                    <constraint firstItem="qhS-X1-O3d" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.45" id="vVc-NX-mWB"/>
+                    <constraint firstItem="qhS-X1-O3d" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.8" id="vVc-NX-mWB"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -85,9 +65,6 @@
         </tableViewCell>
     </objects>
     <designables>
-        <designable name="YAW-Rp-wck">
-            <size key="intrinsicContentSize" width="75" height="30"/>
-        </designable>
         <designable name="qhS-X1-O3d">
             <size key="intrinsicContentSize" width="61" height="30"/>
         </designable>
