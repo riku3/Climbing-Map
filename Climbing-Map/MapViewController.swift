@@ -31,6 +31,9 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         mapView.delegate = self
         fpc.delegate = self
+        
+        // TODO: 方角表示(追従されるため実装方法を工夫する必要あり)
+//        mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
     }
     
     @IBAction func tappedLocationBtn(_ sender: UIButton) {
