@@ -8,8 +8,7 @@
 import UIKit
 
 protocol MovieTappedDelegate: class {
-    func tappedSOTOIWA(name: String)
-    func tappedInstagram(name: String)
+    func tappedYoutube(name: String)
 }
 
 class ProjectTableViewCell: UITableViewCell {
@@ -19,12 +18,8 @@ class ProjectTableViewCell: UITableViewCell {
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var name: UILabel!
     
-    @IBAction func tappedSOTOIWA(_ sender: CustomButton) {
-        movieDelegate?.tappedSOTOIWA(name: self.name.text!)
-    }
-    
-    @IBAction func tappedInstagram(_ sender: CustomButton) {
-        movieDelegate?.tappedInstagram(name: self.name.text!)
+    @IBAction func tappedYoutube(_ sender: CustomButton) {
+        movieDelegate?.tappedYoutube(name: self.name.text!)
     }
     
     override func awakeFromNib() {
@@ -35,7 +30,7 @@ class ProjectTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
-    func setProject(project: RockModel) {
+    func setProject(project: ProjectModel) {
         self.name.text = project.name as String
         self.grade.text = project.grade as String
     }
