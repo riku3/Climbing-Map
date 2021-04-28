@@ -65,6 +65,17 @@ class SearchTableViewController: UITableViewController {
         }
         return cell
     }
+    
+    // セルタップ
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let presentVC = self.presentingViewController as! MapViewController
+        if indexPath.section == 0 {
+            presentVC.searchName = rockNames[indexPath.row]
+        } else {
+            presentVC.searchName = projectNames[indexPath.row]
+        }
+        dismiss(animated: true, completion: nil)
+    }
 }
 
 extension SearchTableViewController: UISearchBarDelegate {
@@ -102,5 +113,16 @@ extension SearchTableViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         view.endEditing(true)
         dismiss(animated: true, completion: nil)
+    }
+}
+
+extension SearchTableViewController {
+    // 強制的にdismissした際に遷移元を呼び出す
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: flag, completion: completion)
+        guard let presentationController = presentationController else {
+            return
+        }
+        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
     }
 }

@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
     var onceNowLocationFlag = true
     var fpc = FloatingPanelController()
     var rockList: [RockModel] = [RockModel]()
+    var searchName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -190,13 +191,19 @@ extension MapViewController: UISearchBarDelegate {
         }
         viewController.rockNames = rockNames
         viewController.projectNames = projectNames
-        
+        viewController.presentationController?.delegate = self
         present(viewController, animated: true)
     }
 }
 
+extension MapViewController: UIAdaptivePresentationControllerDelegate {
+    // 遷移先のdismissを検知
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        print(searchName)
+    }
+}
+
 extension MapViewController: FloatingPanelControllerDelegate {
-    
     // カスタム半モーダル
     func floatingPanel(_ fpc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
         return LandscapePanelLayout()
