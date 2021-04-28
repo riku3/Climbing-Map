@@ -180,14 +180,16 @@ extension MapViewController: UISearchBarDelegate {
         let storyboard = UIStoryboard(name: "Search",bundle: nil)
         guard let viewController =  storyboard.instantiateInitialViewController() as? SearchTableViewController else { return }
         
-        var names: Array<String> = []
+        var rockNames: Array<String> = []
+        var projectNames: Array<String> = []
         for rock in rockList {
-            names.append(rock.name)
+            rockNames.append(rock.name)
             for project in rock.projects {
-                names.append(project.name)
+                projectNames.append(project.name)
             }
         }
-        viewController.names = names    
+        viewController.rockNames = rockNames
+        viewController.projectNames = projectNames
         
         present(viewController, animated: true)
     }

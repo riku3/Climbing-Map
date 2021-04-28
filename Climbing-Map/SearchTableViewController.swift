@@ -12,31 +12,57 @@ class SearchTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var tableview: UITableView!
     
-    var names: Array<String> = []
-    private var searchResult: Array<String> = []
+//    var names: Array<String> = []
+//    private var searchResult: Array<String> = []
+    var sectionTitles: Array<String> = ["岩","課題"]
+    var rockNames: Array<String> = []
+    var projectNames: Array<String> = []
+    private var searchResultRock: Array<String> = []
+    private var searchResultProject: Array<String> = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        searchResult = names
+        searchResultRock = rockNames
+        searchResultProject = projectNames
         searchBar.delegate = self
     }
-
-    // MARK: - Table view data source
-
+    
+    // セクション数
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
+        sectionTitles.count
     }
-
+    
+    // セクションのタイトル
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return sectionTitles[section] as String?
+    }
+    
+    // セクション毎のセル数
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return searchResult.count
+        var row: Int
+        switch section {
+        case 0:
+            row = searchResultRock.count
+        case 1:
+            row = searchResultProject.count
+        default:
+            row = 0
+        }
+        return row
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableview.dequeueReusableCell(withIdentifier: "nameCell", for: indexPath)
-        cell.textLabel?.text = self.searchResult[indexPath.row]
+
+        switch indexPath.section {
+        case 0:
+            cell.textLabel?.text = self.searchResultRock[indexPath.row]
+        case 1:
+            cell.textLabel?.text = self.searchResultProject[indexPath.row]
+        default:
+            break
+        }
         return cell
     }
 }
@@ -46,12 +72,16 @@ extension SearchTableViewController: UISearchBarDelegate {
     func searchNames(searchText: String) {
         //要素を検索する
         if searchText != "" {
-            searchResult = names.filter { name in
-                return name.contains(searchText)
+            searchResultRock = rockNames.filter { rockName in
+                return rockName.contains(searchText)
+            } as Array
+            searchResultProject = projectNames.filter { projectName in
+                return projectName.contains(searchText)
             } as Array
         } else {
             //渡された文字列が空の場合は全てを表示
-            searchResult = names
+            searchResultRock = rockNames
+            searchResultProject = projectNames
         }
         //tableViewを再読み込みする
         tableview.reloadData()
