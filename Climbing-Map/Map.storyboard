@@ -43,14 +43,25 @@
                                     <action selector="tappedLocationBtn:" destination="dH2-Nm-wyQ" eventType="touchUpInside" id="Cee-mz-YUL"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" prompt=" " placeholder="岩または課題を検索" translatesAutoresizingMaskIntoConstraints="NO" id="yxt-wI-2Ai">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="trs-iR-YFr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="trailing" secondItem="trs-iR-YFr" secondAttribute="trailing" id="0rg-8Y-iaI"/>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="top" secondItem="pAA-Zm-7Kw" secondAttribute="top" id="2fy-qQ-nNT"/>
+                            <constraint firstItem="yxt-wI-2Ai" firstAttribute="width" secondItem="trs-iR-YFr" secondAttribute="width" id="3at-bt-i4Y"/>
+                            <constraint firstAttribute="top" secondItem="yxt-wI-2Ai" secondAttribute="top" id="8Qv-3d-1dQ"/>
                             <constraint firstItem="trs-iR-YFr" firstAttribute="trailing" secondItem="icm-Nv-uQK" secondAttribute="trailing" multiplier="1.05" id="EuS-Ux-dGS"/>
                             <constraint firstAttribute="bottom" secondItem="Dle-4Z-6Ej" secondAttribute="bottom" id="LPu-0N-hVy"/>
+                            <constraint firstItem="yxt-wI-2Ai" firstAttribute="leading" secondItem="trs-iR-YFr" secondAttribute="leading" id="VQV-BW-w6N"/>
                             <constraint firstItem="trs-iR-YFr" firstAttribute="bottom" secondItem="icm-Nv-uQK" secondAttribute="bottom" multiplier="1.05" id="XgS-WI-bsx"/>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="leading" secondItem="trs-iR-YFr" secondAttribute="leading" id="Z90-Ud-n8o"/>
                         </constraints>
@@ -68,6 +79,43 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-114.49275362318842" y="-10.044642857142856"/>
+        </scene>
+        <!--Search Table View Controller-->
+        <scene sceneID="CRP-Vt-mu4">
+            <objects>
+                <tableViewController id="Lgd-jr-RWo" customClass="SearchTableViewController" customModule="Climbing_Map" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nr1-o2-b2H">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="岩または課題を検索" showsSearchResultsButton="YES" showsCancelButton="YES" id="erF-dt-7Dq">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <scopeButtonTitles>
+                                <string>Title</string>
+                                <string>Title</string>
+                            </scopeButtonTitles>
+                        </searchBar>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6vM-Oc-W5e">
+                                <rect key="frame" x="0.0" y="84" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vM-Oc-W5e" id="tby-Ky-AG1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="Lgd-jr-RWo" id="fl7-TY-5Ts"/>
+                            <outlet property="delegate" destination="Lgd-jr-RWo" id="BNg-nQ-wuf"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OTJ-j5-gIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="764" y="-10"/>
         </scene>
     </scenes>
     <resources>
