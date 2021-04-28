@@ -199,7 +199,34 @@ extension MapViewController: UISearchBarDelegate {
 extension MapViewController: UIAdaptivePresentationControllerDelegate {
     // 遷移先のdismissを検知
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        print(searchName)
+        for rock in rockList {
+            if (rock.name == searchName) {
+                // 岩名検索時
+                selectRockAnnotation(rockName: rock.name)
+                break
+            }
+            for project in rock.projects {
+                if (project.name == searchName) {
+                    // 課題名検索時
+                    selectRockAnnotation(rockName: rock.name)
+                    break
+                }
+            }
+        }
+    }
+
+    // 指定された岩名よりピンを選択し移動する
+    private func selectRockAnnotation(rockName: String) {
+        for annotation in mapView.annotations {
+            if annotation.title == rockName {
+                // ピンを指定
+                mapView.selectAnnotation(annotation, animated: true)
+                // ピンに移動
+                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // 0.1が距離の倍率
+                let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+                mapView.region = region
+            }
+        }
     }
 }
 
