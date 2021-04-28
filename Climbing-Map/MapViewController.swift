@@ -179,7 +179,16 @@ extension MapViewController: UISearchBarDelegate {
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: "Search",bundle: nil)
         guard let viewController =  storyboard.instantiateInitialViewController() as? SearchTableViewController else { return }
-
+        
+        var names: Array<String> = []
+        for rock in rockList {
+            names.append(rock.name)
+            for project in rock.projects {
+                names.append(project.name)
+            }
+        }
+        viewController.names = names    
+        
         present(viewController, animated: true)
     }
 }
