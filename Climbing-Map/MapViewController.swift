@@ -14,11 +14,13 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationBtn: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var locationManager: CLLocationManager!
     var onceNowLocationFlag = true
     var fpc = FloatingPanelController()
     var rockList: [RockModel] = [RockModel]()
+    var searchName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +34,7 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         mapView.delegate = self
         fpc.delegate = self
+        searchBar.delegate = self
         
         // TODO: 方角表示(追従されるため実装方法を工夫する必要あり)
 //        mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
@@ -171,8 +174,63 @@ extension MapViewController: MKMapViewDelegate {
     }
 }
 
+extension MapViewController: UISearchBarDelegate {
+    // testFieldのタップを検知
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: "Search",bundle: nil)
+        guard let viewController =  storyboard.instantiateInitialViewController() as? SearchTableViewController else { return }
+        
+        var rockNames: Array<String> = []
+        var projectNames: Array<String> = []
+        for rock in rockList {
+            rockNames.append(rock.name)
+            for project in rock.projects {
+                projectNames.append(project.name)
+            }
+        }
+        viewController.rockNames = rockNames
+        viewController.projectNames = projectNames
+        viewController.presentationController?.delegate = self
+        present(viewController, animated: true)
+    }
+}
+
+extension MapViewController: UIAdaptivePresentationControllerDelegate {
+    // 遷移先のdismissを検知
+    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+        for rock in rockList {
+            if (rock.name == searchName) {
+                // 岩名検索時
+                selectRockAnnotation(rockName: rock.name)
+                break
+            }
+            for project in rock.projects {
+                if (project.name == searchName) {
+                    // 課題名検索時
+                    selectRockAnnotation(rockName: rock.name)
+                    break
+                }
+            }
+        }
+    }
+
+    // 指定された岩名よりピンを選択し移動する
+    private func selectRockAnnotation(rockName: String) {
+        for annotation in mapView.annotations {
+            if annotation.title == rockName {
+                // ピンを指定
+                mapView.selectAnnotation(annotation, animated: true)
+                // ピンに移動
+                let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // 0.1が距離の倍率
+                let region = MKCoordinateRegion(center: annotation.coordinate, span: span)
+                mapView.region = region
+            }
+        }
+    }
+}
+
 extension MapViewController: FloatingPanelControllerDelegate {
-    
     // カスタム半モーダル
     func floatingPanel(_ fpc: FloatingPanelController, layoutFor newCollection: UITraitCollection) -> FloatingPanelLayout {
         return LandscapePanelLayout()

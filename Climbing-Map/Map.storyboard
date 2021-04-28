@@ -43,14 +43,25 @@
                                     <action selector="tappedLocationBtn:" destination="dH2-Nm-wyQ" eventType="touchUpInside" id="Cee-mz-YUL"/>
                                 </connections>
                             </button>
+                            <searchBar contentMode="redraw" prompt=" " placeholder="岩または課題を検索" translatesAutoresizingMaskIntoConstraints="NO" id="yxt-wI-2Ai">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="90"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <scopeButtonTitles>
+                                    <string>Title</string>
+                                    <string>Title</string>
+                                </scopeButtonTitles>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="trs-iR-YFr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="trailing" secondItem="trs-iR-YFr" secondAttribute="trailing" id="0rg-8Y-iaI"/>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="top" secondItem="pAA-Zm-7Kw" secondAttribute="top" id="2fy-qQ-nNT"/>
+                            <constraint firstItem="yxt-wI-2Ai" firstAttribute="width" secondItem="trs-iR-YFr" secondAttribute="width" id="3at-bt-i4Y"/>
+                            <constraint firstAttribute="top" secondItem="yxt-wI-2Ai" secondAttribute="top" id="8Qv-3d-1dQ"/>
                             <constraint firstItem="trs-iR-YFr" firstAttribute="trailing" secondItem="icm-Nv-uQK" secondAttribute="trailing" multiplier="1.05" id="EuS-Ux-dGS"/>
                             <constraint firstAttribute="bottom" secondItem="Dle-4Z-6Ej" secondAttribute="bottom" id="LPu-0N-hVy"/>
+                            <constraint firstItem="yxt-wI-2Ai" firstAttribute="leading" secondItem="trs-iR-YFr" secondAttribute="leading" id="VQV-BW-w6N"/>
                             <constraint firstItem="trs-iR-YFr" firstAttribute="bottom" secondItem="icm-Nv-uQK" secondAttribute="bottom" multiplier="1.05" id="XgS-WI-bsx"/>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="leading" secondItem="trs-iR-YFr" secondAttribute="leading" id="Z90-Ud-n8o"/>
                         </constraints>
@@ -58,6 +69,7 @@
                     <connections>
                         <outlet property="locationBtn" destination="icm-Nv-uQK" id="Hz5-Oq-aLy"/>
                         <outlet property="mapView" destination="Dle-4Z-6Ej" id="El4-Nk-dvL"/>
+                        <outlet property="searchBar" destination="yxt-wI-2Ai" id="sM9-0k-lRU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVo-u5-Afh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
