@@ -14,6 +14,7 @@ class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationBtn: UIButton!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var locationManager: CLLocationManager!
     var onceNowLocationFlag = true
@@ -32,6 +33,7 @@ class MapViewController: UIViewController {
         locationManager.delegate = self
         mapView.delegate = self
         fpc.delegate = self
+        searchBar.delegate = self
         
         // TODO: 方角表示(追従されるため実装方法を工夫する必要あり)
 //        mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
@@ -168,6 +170,17 @@ extension MapViewController: MKMapViewDelegate {
             fpc.addPanel(toParent: self)
             fpc.track(scrollView: mapDetailVC.mapDetailTableView)
         }
+    }
+}
+
+extension MapViewController: UISearchBarDelegate {
+    // testFieldのタップを検知
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
+        let storyboard = UIStoryboard(name: "Search",bundle: nil)
+        guard let viewController =  storyboard.instantiateInitialViewController() as? SearchTableViewController else { return }
+
+        present(viewController, animated: true)
     }
 }
 

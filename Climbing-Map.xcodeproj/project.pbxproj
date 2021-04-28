@@ -25,6 +25,7 @@
 		32A7F6452636BE0C00058AAE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7F6442636BE0C00058AAE /* WebKit.framework */; };
 		32A7F6472636BE6900058AAE /* WKWebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F6462636BE6900058AAE /* WKWebviewController.swift */; };
 		32A7F64C2638FC1F00058AAE /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F64B2638FC1E00058AAE /* SearchTableViewController.swift */; };
+		32A7F654263901EE00058AAE /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F653263901EE00058AAE /* Search.storyboard */; };
 		B8BC1B57780B488BD4AFC16D /* Pods_Climbing_MapTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 653DE97E1CBACF9F5D878ECE /* Pods_Climbing_MapTests.framework */; };
 		C11E06E069B0A853EEF34E58 /* Pods_Climbing_Map_Climbing_MapUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDFF3DD622CF684FBD0DB7FF /* Pods_Climbing_Map_Climbing_MapUITests.framework */; };
 		D98EDFACF6260AD3407926B9 /* Pods_Climbing_Map.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B5FC8F96D79F04F7C146A92 /* Pods_Climbing_Map.framework */; };
@@ -73,6 +74,7 @@
 		32A7F6442636BE0C00058AAE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		32A7F6462636BE6900058AAE /* WKWebviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebviewController.swift; sourceTree = "<group>"; };
 		32A7F64B2638FC1E00058AAE /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		32A7F653263901EE00058AAE /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
 		54364B952E5F002E2F7E9FE2 /* Pods-Climbing-MapTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-MapTests.release.xcconfig"; path = "Target Support Files/Pods-Climbing-MapTests/Pods-Climbing-MapTests.release.xcconfig"; sourceTree = "<group>"; };
 		653DE97E1CBACF9F5D878ECE /* Pods_Climbing_MapTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Climbing_MapTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		912DE7DFC1DB1FC43666E0AB /* Pods-Climbing-Map.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Climbing-Map.release.xcconfig"; path = "Target Support Files/Pods-Climbing-Map/Pods-Climbing-Map.release.xcconfig"; sourceTree = "<group>"; };
@@ -155,8 +157,9 @@
 				32A7F589263521D400058AAE /* Assets.xcassets */,
 				32A7F58E263521D400058AAE /* Info.plist */,
 				32A7F5BE263523ED00058AAE /* MapViewController.swift */,
-				32A7F64B2638FC1E00058AAE /* SearchTableViewController.swift */,
 				32A7F5C32635241400058AAE /* Map.storyboard */,
+				32A7F64B2638FC1E00058AAE /* SearchTableViewController.swift */,
+				32A7F653263901EE00058AAE /* Search.storyboard */,
 				32A7F5DE26358D3800058AAE /* MapDetailViewController.swift */,
 				32A7F62226365F7600058AAE /* MapDetail.storyboard */,
 				32A7F5E82636487200058AAE /* ImageTableViewCell.swift */,
@@ -311,6 +314,7 @@
 				32A7F5F9263648A000058AAE /* ProjectTableViewCell.xib in Resources */,
 				32A7F62326365F7600058AAE /* MapDetail.storyboard in Resources */,
 				32A7F5EB2636487200058AAE /* ImageTableViewCell.xib in Resources */,
+				32A7F654263901EE00058AAE /* Search.storyboard in Resources */,
 				32A7F5C42635241400058AAE /* Map.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -69,6 +69,7 @@
                     <connections>
                         <outlet property="locationBtn" destination="icm-Nv-uQK" id="Hz5-Oq-aLy"/>
                         <outlet property="mapView" destination="Dle-4Z-6Ej" id="El4-Nk-dvL"/>
+                        <outlet property="searchBar" destination="yxt-wI-2Ai" id="sM9-0k-lRU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CVo-u5-Afh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -79,43 +80,6 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-114.49275362318842" y="-10.044642857142856"/>
-        </scene>
-        <!--Search Table View Controller-->
-        <scene sceneID="CRP-Vt-mu4">
-            <objects>
-                <tableViewController id="Lgd-jr-RWo" customClass="SearchTableViewController" customModule="Climbing_Map" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="nr1-o2-b2H">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" placeholder="岩または課題を検索" showsSearchResultsButton="YES" showsCancelButton="YES" id="erF-dt-7Dq">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                            <scopeButtonTitles>
-                                <string>Title</string>
-                                <string>Title</string>
-                            </scopeButtonTitles>
-                        </searchBar>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6vM-Oc-W5e">
-                                <rect key="frame" x="0.0" y="84" width="414" height="43.5"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="6vM-Oc-W5e" id="tby-Ky-AG1">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="Lgd-jr-RWo" id="fl7-TY-5Ts"/>
-                            <outlet property="delegate" destination="Lgd-jr-RWo" id="BNg-nQ-wuf"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OTJ-j5-gIa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="764" y="-10"/>
         </scene>
     </scenes>
     <resources>
