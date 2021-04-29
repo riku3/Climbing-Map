@@ -16,7 +16,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rock_hikage" translatesAutoresizingMaskIntoConstraints="NO" id="d1z-fr-vIh">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default_image" translatesAutoresizingMaskIntoConstraints="NO" id="d1z-fr-vIh">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="113"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="rock" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edR-iA-wsW">
@@ -39,11 +39,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="name" destination="edR-iA-wsW" id="Rta-cO-aoj"/>
+                <outlet property="rockImageView" destination="d1z-fr-vIh" id="lqZ-v1-KYa"/>
             </connections>
             <point key="canvasLocation" x="131.8840579710145" y="91.40625"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="rock_hikage" width="1125" height="612"/>
+        <image name="default_image" width="1500" height="1500"/>
     </resources>
 </document>

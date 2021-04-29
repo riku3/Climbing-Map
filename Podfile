@@ -10,6 +10,7 @@ target 'Climbing-Map' do
   pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
+  pod 'Firebase/Storage'
 
   target 'Climbing-MapTests' do
     inherit! :search_paths
