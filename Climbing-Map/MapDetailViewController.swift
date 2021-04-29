@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import FirebaseStorage
 
 class MapDetailViewController: UIViewController {
     
     @IBOutlet weak var mapDetailTableView: UITableView!
     
-    var rock: RockModel!
+    var rock: Rock!
+    var rockImage: UIImage!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +39,20 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
             cell.setRock(name: rock.name)
+            let storage = Storage.storage()
+            let reference = storage.reference(forURL: "gs://sotoiwa-map.appspot.com/rocks/\(rock.name)/\(rock.name).jpg")
+            reference.downloadURL { url, error in
+                if let url = url {
+                    do {
+                        let data = try Data(contentsOf: url)
+                        cell.rockImageView.image = UIImage(data: data)
+                    } catch let error {
+                        print("Error : \(error.localizedDescription)")
+                    }
+                } else {
+                    print(error ?? "")
+                }
+            }
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell

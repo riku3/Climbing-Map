@@ -10,6 +10,7 @@ import UIKit
 class ImageTableViewCell: UITableViewCell {
 
     @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var rockImageView: UIImageView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
