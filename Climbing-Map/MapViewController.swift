@@ -9,6 +9,18 @@ import UIKit
 import MapKit
 import CoreLocation
 import FloatingPanel
+import Firebase
+
+struct Rock {
+    var name: String
+    var longitude: Double
+    var latitude: Double
+    var projects: [Project]
+}
+struct Project {
+    var name: String
+    var grade: String
+}
 
 class MapViewController: UIViewController {
 
@@ -22,9 +34,49 @@ class MapViewController: UIViewController {
     var rockList: [RockModel] = [RockModel]()
     var searchName = ""
     
+    var rockLists: [Rock] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        let db = Firestore.firestore()
+        db.collection("rocks").getDocuments() { [self] (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    print("\(document.documentID) => \(document.data())")
+                    let projectDicList: [[String : Any]] = document.get("projects") as! [[String : Any]]
+                    print(projectDicList)
+                    var projects: [Project] = []
+                    for projectDic in projectDicList {
+                        let project = Project(
+                                        name: projectDic["name"] as! String,
+                                        grade: projectDic["grade"] as! String)
+                        print(project)
+                        projects.append(project)
+                    }
+                    let rock = Rock(
+                        name: document.get("name") as! String,
+                        longitude: document.get("longitude") as! Double,
+                        latitude: document.get("latitude") as! Double,
+                        projects: projects)
+                    self.rockLists.append(rock)
+                    print(self.rockLists)
+                }
+            }
+        }
         
+//        let db = Firestore.firestore()
+//        db.collection("Tea").document("Darjeeling").setData([
+//                    "ProducingArea": "India",
+//                    "TeaLeaf": "OP"
+//                ]) { err in
+//                    if let err = err {
+//                        print("Error writing document: \(err)")
+//                    } else {
+//                        print("Document successfully written!")
+//                    }}
+
         // セットアップ
         setUpLocationManager()
         setUpLocationBtn()
@@ -254,4 +306,3 @@ class LandscapePanelLayout: FloatingPanelLayout {
 //        ]
 //    }
 }
-

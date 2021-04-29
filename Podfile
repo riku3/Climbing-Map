@@ -8,6 +8,8 @@ target 'Climbing-Map' do
   # Pods for Climbing-Map
   pod 'FloatingPanel'
   pod 'Firebase/Analytics'
+  pod 'Firebase/Firestore'
+  pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
 
   target 'Climbing-MapTests' do
     inherit! :search_paths
