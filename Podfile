@@ -7,6 +7,7 @@ target 'Climbing-Map' do
 
   # Pods for Climbing-Map
   pod 'FloatingPanel'
+  pod 'Firebase/Analytics'
 
   target 'Climbing-MapTests' do
     inherit! :search_paths
