@@ -12,7 +12,7 @@ class MapDetailViewController: UIViewController {
     
     @IBOutlet weak var mapDetailTableView: UITableView!
     
-    var rock: RockModel!
+    var rock: Rock!
     var rockImage: UIImage!
     
     override func viewDidLoad() {

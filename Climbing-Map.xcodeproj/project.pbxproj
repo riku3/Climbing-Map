@@ -23,7 +23,6 @@
 		32A7F5F8263648A000058AAE /* ProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */; };
 		32A7F5F9263648A000058AAE /* ProjectTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */; };
 		32A7F62326365F7600058AAE /* MapDetail.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32A7F62226365F7600058AAE /* MapDetail.storyboard */; };
-		32A7F62E26368B1D00058AAE /* RockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F62D26368B1D00058AAE /* RockModel.swift */; };
 		32A7F63A2636AF0700058AAE /* CustomButton+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F6392636AF0700058AAE /* CustomButton+UIButton.swift */; };
 		32A7F6452636BE0C00058AAE /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32A7F6442636BE0C00058AAE /* WebKit.framework */; };
 		32A7F6472636BE6900058AAE /* WKWebviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A7F6462636BE6900058AAE /* WKWebviewController.swift */; };
@@ -73,7 +72,6 @@
 		32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectTableViewCell.swift; sourceTree = "<group>"; };
 		32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProjectTableViewCell.xib; sourceTree = "<group>"; };
 		32A7F62226365F7600058AAE /* MapDetail.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MapDetail.storyboard; sourceTree = "<group>"; };
-		32A7F62D26368B1D00058AAE /* RockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RockModel.swift; sourceTree = "<group>"; };
 		32A7F6392636AF0700058AAE /* CustomButton+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CustomButton+UIButton.swift"; sourceTree = "<group>"; };
 		32A7F6442636BE0C00058AAE /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		32A7F6462636BE6900058AAE /* WKWebviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WKWebviewController.swift; sourceTree = "<group>"; };
@@ -170,7 +168,6 @@
 				32A7F5E92636487200058AAE /* ImageTableViewCell.xib */,
 				32A7F5F6263648A000058AAE /* ProjectTableViewCell.swift */,
 				32A7F5F7263648A000058AAE /* ProjectTableViewCell.xib */,
-				32A7F62D26368B1D00058AAE /* RockModel.swift */,
 				32A7F6392636AF0700058AAE /* CustomButton+UIButton.swift */,
 				32A7F6462636BE6900058AAE /* WKWebviewController.swift */,
 				3283F2D7263A5330005C4F6D /* GoogleService-Info.plist */,
@@ -454,7 +451,6 @@
 				32A7F5DF26358D3800058AAE /* MapDetailViewController.swift in Sources */,
 				32A7F5F8263648A000058AAE /* ProjectTableViewCell.swift in Sources */,
 				32A7F63A2636AF0700058AAE /* CustomButton+UIButton.swift in Sources */,
-				32A7F62E26368B1D00058AAE /* RockModel.swift in Sources */,
 				32A7F581263521D100058AAE /* AppDelegate.swift in Sources */,
 				32A7F5EA2636487200058AAE /* ImageTableViewCell.swift in Sources */,
 				32A7F583263521D100058AAE /* SceneDelegate.swift in Sources */,

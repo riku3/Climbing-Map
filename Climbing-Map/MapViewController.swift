@@ -31,28 +31,24 @@ class MapViewController: UIViewController {
     var locationManager: CLLocationManager!
     var onceNowLocationFlag = true
     var fpc = FloatingPanelController()
-    var rockList: [RockModel] = [RockModel]()
+    var rockList: [Rock] = []
     var searchName = ""
-    
-    var rockLists: [Rock] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let db = Firestore.firestore()
         db.collection("rocks").getDocuments() { [self] (querySnapshot, err) in
             if let err = err {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    print("\(document.documentID) => \(document.data())")
                     let projectDicList: [[String : Any]] = document.get("projects") as! [[String : Any]]
-                    print(projectDicList)
                     var projects: [Project] = []
                     for projectDic in projectDicList {
                         let project = Project(
                                         name: projectDic["name"] as! String,
                                         grade: projectDic["grade"] as! String)
-                        print(project)
                         projects.append(project)
                     }
                     let rock = Rock(
@@ -60,27 +56,15 @@ class MapViewController: UIViewController {
                         longitude: document.get("longitude") as! Double,
                         latitude: document.get("latitude") as! Double,
                         projects: projects)
-                    self.rockLists.append(rock)
-                    print(self.rockLists)
+                    self.rockList.append(rock)
+                    setPinToMap()
                 }
             }
         }
         
-//        let db = Firestore.firestore()
-//        db.collection("Tea").document("Darjeeling").setData([
-//                    "ProducingArea": "India",
-//                    "TeaLeaf": "OP"
-//                ]) { err in
-//                    if let err = err {
-//                        print("Error writing document: \(err)")
-//                    } else {
-//                        print("Document successfully written!")
-//                    }}
-
         // セットアップ
         setUpLocationManager()
         setUpLocationBtn()
-        setPinToMap()
         
         // delegate
         locationManager.delegate = self
@@ -123,33 +107,6 @@ class MapViewController: UIViewController {
     
     // ピンをセットする
     private func setPinToMap() {
-        // TODO: APIより岩情報を取得 start
-        rockList.append(RockModel(name: "日陰岩", longitude: 139.948359, latitude: 35.801884,
-                                  projects: [
-                                     ProjectModel(name: "彩雨", grade: "初段"),
-                                     ProjectModel(name: "嶺の夕", grade: "1級"),
-                                     ProjectModel(name: "NewSoul", grade: "2級"),
-                                     ProjectModel(name: "日陰者", grade: "4級")
-                                  ]))
-        rockList.append(RockModel(name: "忍者返し岩", longitude: 139.9503226, latitude: 35.8042616,
-                                  projects: [
-                                    ProjectModel(name: "蟹虫", grade: "四段"),
-                                    ProjectModel(name: "蜥蜴（トカゲ）", grade: "四段"),
-                                    ProjectModel(name: "蟹亀返し", grade: "四段ー"),
-                                    ProjectModel(name: "蛙", grade: "三段"),
-                                    ProjectModel(name: "虫", grade: "三段"),
-                                    ProjectModel(name: "肺魚", grade: "二段"),
-                                    ProjectModel(name: "蟹", grade: "二段"),
-                                    ProjectModel(name: "亀クライマー返し", grade: "二段"),
-                                    ProjectModel(name: "忍者クライマー返し", grade: "二段"),
-                                    ProjectModel(name: "素上り", grade: "初段"),
-                                    ProjectModel(name: "クライマー返し", grade: "初段"),
-                                    ProjectModel(name: "子供返し", grade: "初段"),
-                                    ProjectModel(name: "亀返し", grade: "初段"),
-                                    ProjectModel(name: "忍者返し", grade: "1級")
-                                  ]))
-        // TODO: APIより岩情報を取得 end
-        
         for rock in rockList {
             // 岩ピン生成(Mock)
             let pinRock = MKPointAnnotation()
