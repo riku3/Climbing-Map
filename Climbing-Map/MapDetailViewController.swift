@@ -38,7 +38,6 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
-            cell.setRock(name: rock.name)
             let storage = Storage.storage()
             let reference = storage.reference(forURL: "gs://sotoiwa-map.appspot.com/rocks/\(rock.name)/\(rock.name).jpg")
             reference.downloadURL { url, error in
@@ -46,6 +45,7 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
                     do {
                         let data = try Data(contentsOf: url)
                         cell.rockImageView.image = UIImage(data: data)
+                        cell.setRock(name: self.rock.name)
                     } catch let error {
                         print("Error : \(error.localizedDescription)")
                     }
