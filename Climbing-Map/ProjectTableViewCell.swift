@@ -8,7 +8,7 @@
 import UIKit
 
 protocol MovieTappedDelegate: class {
-    func tappedYoutube(name: String)
+    func tappedYoutube(projectName: String)
 }
 
 class ProjectTableViewCell: UITableViewCell {
@@ -16,10 +16,10 @@ class ProjectTableViewCell: UITableViewCell {
     weak var movieDelegate: MovieTappedDelegate?
 
     @IBOutlet weak var grade: UILabel!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var projectName: UILabel!
     
     @IBAction func tappedYoutube(_ sender: CustomButton) {
-        movieDelegate?.tappedYoutube(name: self.name.text!)
+        movieDelegate?.tappedYoutube(projectName: self.projectName.text!)
     }
     
     override func awakeFromNib() {
@@ -31,7 +31,7 @@ class ProjectTableViewCell: UITableViewCell {
     }
     
     func setProject(project: Project) {
-        self.name.text = project.name as String
+        self.projectName.text = project.name as String
         self.grade.text = project.grade as String
     }
 }

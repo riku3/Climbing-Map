@@ -178,6 +178,7 @@ extension MapViewController: MKMapViewDelegate {
                 }
             }
             fpc.show()
+            fpc.isRemovalInteractionEnabled = true
             let appearance = SurfaceAppearance()
             appearance.cornerRadius = 9.0
             fpc.surfaceView.appearance = appearance

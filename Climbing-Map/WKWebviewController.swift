@@ -12,7 +12,8 @@ import WebKit
 class WKWebviewController: UIViewController {
 
     var webView: WKWebView!
-    var name: String!
+    var projectName: String!
+    var rockName: String!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class WKWebviewController: UIViewController {
         webView = WKWebView(frame: view.frame)
         view.addSubview(webView)
 
-        let urlString = "https://www.youtube.com/results?search_query=" + name
+        let urlString = "https://www.youtube.com/results?search_query=\(rockName!)+\(projectName!)"
         let encodeUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         if let url = URL(string: encodeUrlString!) {
             let request = URLRequest(url: url)

@@ -68,9 +68,10 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension MapDetailViewController: MovieTappedDelegate {
-    func tappedYoutube(name: String) {
+    func tappedYoutube(projectName: String) {
         let webview = WKWebviewController()
-        webview.name = name
+        webview.projectName = projectName
+        webview.rockName = rock.name
         present(webview, animated: true, completion: nil)
     }
 }
