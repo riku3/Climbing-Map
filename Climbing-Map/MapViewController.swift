@@ -163,6 +163,13 @@ extension MapViewController: MKMapViewDelegate {
     // ピン押下時
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation {
+            
+            // titleに岩が含まれない(=ユーザー)の場合は何もしない
+            // FIXME: 強制アンラップ
+            guard (annotation.title!!).contains("岩") else {
+                return
+            }
+            
             let mapDetailVC = MapDetailViewController.fromStoryboard()
             for rock in rockList {
                 if annotation.title == rock.name {
