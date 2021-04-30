@@ -40,6 +40,7 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
 
+            // public化したStorageより画像取得(AlamofireImageより自動キャッシュ)
             let encodeRockName = rock.name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
             let urlString = "https://firebasestorage.googleapis.com/v0/b/sotoiwa-map.appspot.com/o/rocks%2F\(encodeRockName)%2F\(encodeRockName).jpg?alt=media"
             if let url = URL(string: urlString) {
