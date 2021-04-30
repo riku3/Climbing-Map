@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseStorage
+import AlamofireImage
 
 class MapDetailViewController: UIViewController {
     
@@ -38,21 +39,15 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
-            cell.setRock(name: rock.name)
-            let storage = Storage.storage()
-            let reference = storage.reference(forURL: "gs://sotoiwa-map.appspot.com/rocks/\(rock.name)/\(rock.name).jpg")
-            reference.downloadURL { url, error in
-                if let url = url {
-                    do {
-                        let data = try Data(contentsOf: url)
-                        cell.rockImageView.image = UIImage(data: data)
-                    } catch let error {
-                        print("Error : \(error.localizedDescription)")
-                    }
-                } else {
-                    print(error ?? "")
-                }
+
+            // public化したStorageより画像取得(AlamofireImageより自動キャッシュ)
+            let encodeRockName = rock.name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+            let urlString = "https://firebasestorage.googleapis.com/v0/b/sotoiwa-map.appspot.com/o/rocks%2F\(encodeRockName)%2F\(encodeRockName).jpg?alt=media"
+            if let url = URL(string: urlString) {
+                cell.rockImageView.af.setImage(withURL: url)
+                cell.setRock(name: self.rock.name)
             }
+            
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell
