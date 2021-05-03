@@ -28,6 +28,13 @@ struct ServerMaintenanceConfig: Codable {
     let message: String
 }
 
+struct ServerForceUpdateConfig: Codable {
+    let isForceUpdate: Bool
+    let forceVersion: String
+    let title: String
+    let message: String
+}
+
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -74,7 +81,7 @@ class MapViewController: UIViewController {
         }
     }
     
-    // メンテナンスモードかチェックする
+    // メンテナンスモード・強制アップデートかチェックする
     private func checkMaintenance() {
         let remoteConfig = RemoteConfig.remoteConfig()
         let settings = RemoteConfigSettings()
@@ -85,14 +92,15 @@ class MapViewController: UIViewController {
                 return
             }
             remoteConfig.activate() { [self] (changed, error) in
-                guard let fetchedString = remoteConfig.configValue(forKey: "maintenance").stringValue else {
+                // メンテナンス
+                guard let maintenanceString = remoteConfig.configValue(forKey: "maintenance").stringValue else {
                     return
                 }
-                let data = fetchedString.data(using: .utf8)!
-                let decoder = JSONDecoder()
-                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                let maintenanceData = maintenanceString.data(using: .utf8)!
+                let maintenanceDecoder = JSONDecoder()
+                maintenanceDecoder.keyDecodingStrategy = .convertFromSnakeCase
                 do {
-                    let maintenance = try decoder.decode(ServerMaintenanceConfig.self, from: data)
+                    let maintenance = try maintenanceDecoder.decode(ServerMaintenanceConfig.self, from: maintenanceData)
                     // メンテナンスモード中はアラートを表示
                     if maintenance.isMaintenance {
                         DispatchQueue.main.sync {
@@ -102,7 +110,48 @@ class MapViewController: UIViewController {
                 } catch let error{
                     print(error)
                 }
+                
+                // 強制アップデート
+                guard let forceUpdateString = remoteConfig.configValue(forKey: "force_update").stringValue else {
+                    return
+                }
+                let forceUpdatedata = forceUpdateString.data(using: .utf8)!
+                let forceUpdateDecoder = JSONDecoder()
+                forceUpdateDecoder.keyDecodingStrategy = .convertFromSnakeCase
+                do {
+                    let forceUpdate = try forceUpdateDecoder.decode(ServerForceUpdateConfig.self, from: forceUpdatedata)
+                    
+                    // バージョン比較
+                    let configVerInt = versionToInt(forceUpdate.forceVersion)
+                    let currentVerInt = versionToInt(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
+)
+                    // 強制アップデート中はアラートを表示し、Appstoreへの導線を表示
+                    if forceUpdate.isForceUpdate && configVerInt > currentVerInt {
+                        DispatchQueue.main.sync {
+                            self.showForceUpdateAlert(forceUpdateConfig: forceUpdate)
+                        }
+                    }
+                } catch let error{
+                    print(error)
+                }
             }
+        }
+    }
+    
+    // x.x.xの数値比較用
+    private func versionToInt(_ ver: String) -> Int {
+        let arr = ver.split(separator: ".").map { Int($0) ?? 0 }
+
+        switch arr.count {
+            case 3:
+                return arr[0] * 1000 * 1000 + arr[1] * 1000 + arr[2]
+            case 2:
+                return arr[0] * 1000 * 1000 + arr[1] * 1000
+            case 1:
+                return arr[0] * 1000 * 1000
+            default:
+                assertionFailure("Illegal version string.")
+                return 0
         }
     }
     
@@ -113,6 +162,23 @@ class MapViewController: UIViewController {
             message: maintenanceConfig.message,
             preferredStyle: .alert
         )
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // 強制アップデートアラート表示
+    private func showForceUpdateAlert(forceUpdateConfig: ServerForceUpdateConfig) {
+        let alertController = UIAlertController(
+            title: forceUpdateConfig.title,
+            message: forceUpdateConfig.message,
+            preferredStyle: .alert
+        )
+        let okAction = UIAlertAction(title: "アップデート", style: .default, handler: { Void in
+            // TODO: AppStore公開後にappIDを入れる
+//            guard let url = URL(string: "itms-apps://itunes.apple.com/app/id\(appID)") else { return }
+            guard let url = URL(string: "itms-apps://itunes.apple.com/") else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        })
+        alertController.addAction(okAction)
         present(alertController, animated: true, completion: nil)
     }
     
