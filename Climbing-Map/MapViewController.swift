@@ -63,9 +63,6 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         fpc.delegate = self
         searchBar.delegate = self
-        
-        // TODO: 方角表示(追従されるため実装方法を工夫する必要あり)
-//        mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
     }
     
     @IBAction func tappedLocationBtn(_ sender: UIButton) {
@@ -285,9 +282,8 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation {
             
-            // titleに岩が含まれない(=ユーザー)の場合は何もしない
-            // FIXME: 強制アンラップ
-            guard (annotation.title!!).contains("岩") else {
+            // ユーザータップ時は何もしない
+            if annotation is MKUserLocation {
                 return
             }
             

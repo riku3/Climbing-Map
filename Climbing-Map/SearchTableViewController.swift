@@ -12,8 +12,6 @@ class SearchTableViewController: UITableViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet var tableview: UITableView!
     
-//    var names: Array<String> = []
-//    private var searchResult: Array<String> = []
     var sectionTitles: Array<String> = ["岩","課題"]
     var rockNames: Array<String> = []
     var projectNames: Array<String> = []
