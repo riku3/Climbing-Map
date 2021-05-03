@@ -12,6 +12,7 @@ target 'Climbing-Map' do
   pod 'FirebaseFirestoreSwift', '~> 7.0-beta'
   pod 'Firebase/Storage'
   pod 'AlamofireImage'
+  pod 'Firebase/RemoteConfig'
 
   target 'Climbing-MapTests' do
     inherit! :search_paths

@@ -22,6 +22,12 @@ struct Project {
     var grade: String
 }
 
+struct ServerMaintenanceConfig: Codable {
+    let isMaintenance: Bool
+    let title: String
+    let message: String
+}
+
 class MapViewController: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -37,32 +43,11 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let db = Firestore.firestore()
-        db.collection("rocks").getDocuments() { [self] (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err)")
-            } else {
-                for document in querySnapshot!.documents {
-                    let projectDicList: [[String : Any]] = document.get("projects") as! [[String : Any]]
-                    var projects: [Project] = []
-                    for projectDic in projectDicList {
-                        let project = Project(
-                                        name: projectDic["name"] as! String,
-                                        grade: projectDic["grade"] as! String)
-                        projects.append(project)
-                    }
-                    let rock = Rock(
-                        name: document.get("name") as! String,
-                        longitude: document.get("longitude") as! Double,
-                        latitude: document.get("latitude") as! Double,
-                        projects: projects)
-                    self.rockList.append(rock)
-                    setPinToMap()
-                }
-            }
-        }
+        // メンテナンスモードチェック
+        checkMaintenance()
         
         // セットアップ
+        setUpMapData()
         setUpLocationManager()
         setUpLocationBtn()
         
@@ -86,6 +71,76 @@ class MapViewController: UIViewController {
     @IBAction func mapViewDidTap(sender: UITapGestureRecognizer) {
         if sender.state == UIGestureRecognizer.State.ended {
             fpc.hide()
+        }
+    }
+    
+    // メンテナンスモードかチェックする
+    private func checkMaintenance() {
+        let remoteConfig = RemoteConfig.remoteConfig()
+        let settings = RemoteConfigSettings()
+        settings.minimumFetchInterval = 0; // for test
+        remoteConfig.configSettings = settings
+        remoteConfig.fetch() { (status, error) -> Void in
+            guard status == .success else {
+                return
+            }
+            remoteConfig.activate() { [self] (changed, error) in
+                guard let fetchedString = remoteConfig.configValue(forKey: "maintenance").stringValue else {
+                    return
+                }
+                let data = fetchedString.data(using: .utf8)!
+                let decoder = JSONDecoder()
+                decoder.keyDecodingStrategy = .convertFromSnakeCase
+                do {
+                    let maintenance = try decoder.decode(ServerMaintenanceConfig.self, from: data)
+                    // メンテナンスモード中はアラートを表示
+                    if maintenance.isMaintenance {
+                        DispatchQueue.main.sync {
+                            self.showMaintenanceAlert(maintenanceConfig: maintenance)
+                        }
+                    }
+                } catch let error{
+                    print(error)
+                }
+            }
+        }
+    }
+    
+    // メンテナンスアラート表示
+    private func showMaintenanceAlert(maintenanceConfig: ServerMaintenanceConfig) {
+        let alertController = UIAlertController(
+            title: maintenanceConfig.title,
+            message: maintenanceConfig.message,
+            preferredStyle: .alert
+        )
+        present(alertController, animated: true, completion: nil)
+    }
+    
+    // FireStoreからMapデータを取得
+    private func setUpMapData() {
+        let db = Firestore.firestore()
+        db.collection("rocks").getDocuments() { [self] (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+            } else {
+                for document in querySnapshot!.documents {
+                    let projectDicList: [[String : Any]] = document.get("projects") as! [[String : Any]]
+                    var projects: [Project] = []
+                    for projectDic in projectDicList {
+                        let project = Project(
+                                        name: projectDic["name"] as! String,
+                                        grade: projectDic["grade"] as! String)
+                        projects.append(project)
+                    }
+                    let rock = Rock(
+                        name: document.get("name") as! String,
+                        longitude: document.get("longitude") as! Double,
+                        latitude: document.get("latitude") as! Double,
+                        projects: projects)
+                    self.rockList.append(rock)
+                    setPinToMap()
+                }
+            }
         }
     }
     
