@@ -96,7 +96,9 @@ class SearchTableViewController: UITableViewController {
         default:
             break
         }
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true){
+            NotificationCenter.default.post(name: .searchCellTapped, object: nil)
+        }
     }
 }
 
@@ -174,16 +176,16 @@ extension SearchTableViewController: UISearchBarDelegate {
     }
 }
 
-extension SearchTableViewController {
-    // 強制的にdismissした際に遷移元を呼び出す
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        super.dismiss(animated: flag, completion: completion)
-        guard let presentationController = presentationController else {
-            return
-        }
-        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
-    }
-}
+//extension SearchTableViewController {
+//    // 強制的にdismissした際に遷移元を呼び出す
+//    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+//        super.dismiss(animated: flag, completion: completion)
+//        guard let presentationController = presentationController else {
+//            return
+//        }
+//        presentationController.delegate?.presentationControllerDidDismiss?(presentationController)
+//    }
+//}
 
 struct Map {
     enum Result<T> {
