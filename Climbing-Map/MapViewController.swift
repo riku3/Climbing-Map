@@ -63,9 +63,6 @@ class MapViewController: UIViewController {
         mapView.delegate = self
         fpc.delegate = self
         searchBar.delegate = self
-        
-        // TODO: 方角表示(追従されるため実装方法を工夫する必要あり)
-//        mapView.setUserTrackingMode(MKUserTrackingMode.followWithHeading, animated: true)
     }
     
     @IBAction func tappedLocationBtn(_ sender: UIButton) {
@@ -285,9 +282,8 @@ extension MapViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         if let annotation = view.annotation {
             
-            // titleに岩が含まれない(=ユーザー)の場合は何もしない
-            // FIXME: 強制アンラップ
-            guard (annotation.title!!).contains("岩") else {
+            // ユーザータップ時は何もしない
+            if annotation is MKUserLocation {
                 return
             }
             
@@ -310,6 +306,19 @@ extension MapViewController: MKMapViewDelegate {
             fpc.track(scrollView: mapDetailVC.mapDetailTableView)
         }
     }
+    // FIXME: 現在地の方向を追加する
+//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+//        for view in views {
+//            if view.annotation is MKUserLocation {
+//                var headingImageView = UIImageView()
+//                if let image = UIImage(systemName: "arrowtriangle.up") {
+//                    headingImageView.image = image
+//                    headingImageView.frame = CGRect(x: (view.frame.size.width - image.size.width)/2, y: (view.frame.size.height - image.size.height)/2, width: image.size.width, height: image.size.height)
+//                }
+//                view.addSubview(headingImageView)
+//            }
+//        }
+//    }
 }
 
 extension MapViewController: UISearchBarDelegate {
