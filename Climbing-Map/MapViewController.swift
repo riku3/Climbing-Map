@@ -46,7 +46,10 @@ class MapViewController: UIViewController {
     var onceNowLocationFlag = true
     var fpc = FloatingPanelController()
     var rockList: [Rock] = []
+    var isSearchArea = false
     var searchName = ""
+    var searchLongitude: Double = 0.0
+    var searchlatitude: Double = 0.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -343,6 +346,8 @@ extension MapViewController: MKMapViewDelegate {
 extension MapViewController: UISearchBarDelegate {
     // testFieldのタップを検知
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        fpc.hide()
+        
         self.view.endEditing(true)
         let storyboard = UIStoryboard(name: "Search",bundle: nil)
         guard let viewController =  storyboard.instantiateInitialViewController() as? SearchTableViewController else { return }
@@ -365,17 +370,27 @@ extension MapViewController: UISearchBarDelegate {
 extension MapViewController: UIAdaptivePresentationControllerDelegate {
     // 遷移先のdismissを検知
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
-        for rock in rockList {
-            if (rock.name == searchName) {
-                // 岩名検索時
-                selectRockAnnotation(rockName: rock.name)
-                break
-            }
-            for project in rock.projects {
-                if (project.name == searchName) {
-                    // 課題名検索時
+        
+        if isSearchArea {
+            // 地名検索
+            let span = MKCoordinateSpan(latitudeDelta: 0.1, longitudeDelta: 0.1) // 0.1が距離の倍率
+            let coordinate = CLLocationCoordinate2D(latitude: searchlatitude, longitude: searchLongitude)
+            let region = MKCoordinateRegion(center: coordinate, span: span)
+            mapView.region = region
+        } else {
+            // 岩・課題検索
+            for rock in rockList {
+                if (rock.name == searchName) {
+                    // 岩名検索時
                     selectRockAnnotation(rockName: rock.name)
                     break
+                }
+                for project in rock.projects {
+                    if (project.name == searchName) {
+                        // 課題名検索時
+                        selectRockAnnotation(rockName: rock.name)
+                        break
+                    }
                 }
             }
         }
