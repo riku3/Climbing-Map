@@ -306,6 +306,19 @@ extension MapViewController: MKMapViewDelegate {
             fpc.track(scrollView: mapDetailVC.mapDetailTableView)
         }
     }
+    // FIXME: 現在地の方向を追加する
+//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
+//        for view in views {
+//            if view.annotation is MKUserLocation {
+//                var headingImageView = UIImageView()
+//                if let image = UIImage(systemName: "arrowtriangle.up") {
+//                    headingImageView.image = image
+//                    headingImageView.frame = CGRect(x: (view.frame.size.width - image.size.width)/2, y: (view.frame.size.height - image.size.height)/2, width: image.size.width, height: image.size.height)
+//                }
+//                view.addSubview(headingImageView)
+//            }
+//        }
+//    }
 }
 
 extension MapViewController: UISearchBarDelegate {
