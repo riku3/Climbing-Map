@@ -51,14 +51,38 @@
                                     <string>Title</string>
                                 </scopeButtonTitles>
                             </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6i7-v2-YNE">
+                                <rect key="frame" x="364" y="124" width="30" height="21"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="6i7-v2-YNE" secondAttribute="height" multiplier="1:1" id="VP8-JF-8CR"/>
+                                    <constraint firstAttribute="height" constant="40" id="o20-oE-J71"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" image="square.stack.3d.up" catalog="system">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="tappedMapTypeBtn:" destination="dH2-Nm-wyQ" eventType="touchUpInside" id="BmE-rQ-8Ao"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="trs-iR-YFr"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="trailing" secondItem="trs-iR-YFr" secondAttribute="trailing" id="0rg-8Y-iaI"/>
+                            <constraint firstItem="6i7-v2-YNE" firstAttribute="top" secondItem="yxt-wI-2Ai" secondAttribute="bottom" multiplier="1.2" id="2dJ-7z-TiT"/>
                             <constraint firstItem="Dle-4Z-6Ej" firstAttribute="top" secondItem="pAA-Zm-7Kw" secondAttribute="top" id="2fy-qQ-nNT"/>
                             <constraint firstItem="yxt-wI-2Ai" firstAttribute="width" secondItem="trs-iR-YFr" secondAttribute="width" id="3at-bt-i4Y"/>
                             <constraint firstAttribute="top" secondItem="yxt-wI-2Ai" secondAttribute="top" id="8Qv-3d-1dQ"/>
+                            <constraint firstItem="6i7-v2-YNE" firstAttribute="trailing" secondItem="trs-iR-YFr" secondAttribute="trailing" multiplier="0.95" id="Bo8-P3-e1j"/>
                             <constraint firstItem="trs-iR-YFr" firstAttribute="trailing" secondItem="icm-Nv-uQK" secondAttribute="trailing" multiplier="1.05" id="EuS-Ux-dGS"/>
                             <constraint firstAttribute="bottom" secondItem="Dle-4Z-6Ej" secondAttribute="bottom" id="LPu-0N-hVy"/>
                             <constraint firstItem="yxt-wI-2Ai" firstAttribute="leading" secondItem="trs-iR-YFr" secondAttribute="leading" id="VQV-BW-w6N"/>
@@ -68,6 +92,7 @@
                     </view>
                     <connections>
                         <outlet property="locationBtn" destination="icm-Nv-uQK" id="Hz5-Oq-aLy"/>
+                        <outlet property="mapTypeBtn" destination="6i7-v2-YNE" id="aXM-O5-kmv"/>
                         <outlet property="mapView" destination="Dle-4Z-6Ej" id="El4-Nk-dvL"/>
                         <outlet property="searchBar" destination="yxt-wI-2Ai" id="sM9-0k-lRU"/>
                     </connections>
@@ -84,6 +109,7 @@
     </scenes>
     <resources>
         <image name="location.fill" catalog="system" width="128" height="121"/>
+        <image name="square.stack.3d.up" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

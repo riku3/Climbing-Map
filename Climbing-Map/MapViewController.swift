@@ -40,6 +40,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var locationBtn: UIButton!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var mapTypeBtn: UIButton!
     
     var locationManager: CLLocationManager!
     var onceNowLocationFlag = true
@@ -56,13 +57,24 @@ class MapViewController: UIViewController {
         // セットアップ
         setUpMapData()
         setUpLocationManager()
-        setUpLocationBtn()
+        setUpBtn()
         
         // delegate
         locationManager.delegate = self
         mapView.delegate = self
         fpc.delegate = self
         searchBar.delegate = self
+    }
+    
+    @IBAction func tappedMapTypeBtn(_ sender: UIButton) {
+        switch mapView.mapType {
+        case .standard:
+            // 3D Flyover+ラベル
+            mapView.mapType = .hybridFlyover
+        default:
+            // 標準の地図
+            mapView.mapType = .standard
+        }
     }
     
     @IBAction func tappedLocationBtn(_ sender: UIButton) {
@@ -213,8 +225,15 @@ class MapViewController: UIViewController {
         locationManager = CLLocationManager()
         locationManager!.requestWhenInUseAuthorization()
     }
-    // ロケーションボタンを設定する
-    private func setUpLocationBtn() {
+    // ボタンデザインの更新
+    private func setUpBtn() {
+        // マップタイプボタンのデザイン更新
+        mapTypeBtn.layer.shadowColor = UIColor.black.cgColor
+        mapTypeBtn.layer.shadowRadius = 2
+        mapTypeBtn.layer.shadowOffset = CGSize(width: 1.5, height: 1.5)
+        mapTypeBtn.layer.shadowOpacity = 0.5
+        mapTypeBtn.imageEdgeInsets = UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+        
         // 現在地ボタンのデザイン更新
         locationBtn.layer.shadowColor = UIColor.black.cgColor
         locationBtn.layer.shadowRadius = 2
