@@ -12,12 +12,14 @@ import FloatingPanel
 import Firebase
 
 struct Rock {
+    var id: Int
     var name: String
     var longitude: Double
     var latitude: Double
     var projects: [Project]
 }
 struct Project {
+    var id: Int
     var name: String
     var grade: String
 }
@@ -205,20 +207,50 @@ class MapViewController: UIViewController {
                 print("Error getting documents: \(err)")
             } else {
                 for document in querySnapshot!.documents {
-                    let projectDicList: [[String : Any]] = document.get("projects") as! [[String : Any]]
+                    // 必須項目
+                    guard let projectDicList: [[String : Any]] = document.get("projects") as? [[String : Any]] else {
+                        continue
+                    }
+                    
                     var projects: [Project] = []
+                    
+                    // 課題追加
                     for projectDic in projectDicList {
+                        // 必須項目
+                        guard let projectId = projectDic["id"] as? Int ,
+                              let projectGrade = projectDic["grade"] as? String else {
+                            continue
+                        }
+                        // デフォルト可項目
+                        let projectName = projectDic["name"] as? String ?? "無題"
                         let project = Project(
-                                        name: projectDic["name"] as! String,
-                                        grade: projectDic["grade"] as! String)
+                                        id: projectId,
+                                        name: projectName,
+                                        grade: projectGrade)
                         projects.append(project)
                     }
+                    
+                    // 課題数0の場合はスキップ、必須項目
+                    guard projects.count != 0,
+                          let rockId = document.get("id") as? Int,
+                          let rockLongitude = document.get("longitude") as? Double,
+                          let rockLatitude = document.get("latitude") as? Double
+                          else {
+                        continue
+                    }
+                    
+                    // デフォルト可項目
+                    let rockName = document.get("name") as? String ?? "無題"
+                    // 岩追加
                     let rock = Rock(
-                        name: document.get("name") as! String,
-                        longitude: document.get("longitude") as! Double,
-                        latitude: document.get("latitude") as! Double,
+                        id: rockId,
+                        name: rockName,
+                        longitude: rockLongitude,
+                        latitude: rockLatitude,
                         projects: projects)
                     self.rockList.append(rock)
+                    
+                    // ピンにセット
                     setPinToMap()
                 }
             }

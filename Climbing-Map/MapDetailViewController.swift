@@ -40,19 +40,35 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
 
-            // public化したStorageより画像取得(AlamofireImageより自動キャッシュ)
-            let encodeRockName = rock.name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-            let urlString = "https://firebasestorage.googleapis.com/v0/b/sotoiwa-map.appspot.com/o/rocks%2F\(encodeRockName)%2F\(encodeRockName).jpg?alt=media"
-            if let url = URL(string: urlString) {
-                cell.rockImageView.af.setImage(withURL: url)
-                cell.setRock(name: self.rock.name)
+            // 岩名なし
+            if rock.name == "無題" {
+                // public化したStorageより画像取得(AlamofireImageより自動キャッシュ)
+                let rockNameEncode = rock.name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+                let path = rockNameEncode + String(rock.id)
+                let urlString = "https://firebasestorage.googleapis.com/v0/b/sotoiwa-map.appspot.com/o/rocks%2F\(path)%2F\(path).jpg?alt=media"
+                if let url = URL(string: urlString) {
+                    cell.rockImageView.af.setImage(withURL: url)
+                }
+            // 岩名あり
+            } else {
+                // public化したStorageより画像取得(AlamofireImageより自動キャッシュ)
+                let encodeRockName = rock.name.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+                let urlString = "https://firebasestorage.googleapis.com/v0/b/sotoiwa-map.appspot.com/o/rocks%2F\(encodeRockName)%2F\(encodeRockName).jpg?alt=media"
+                if let url = URL(string: urlString) {
+                    cell.rockImageView.af.setImage(withURL: url)
+                    cell.setRock(name: self.rock.name)
+                }
             }
-            
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell
             cell.movieDelegate = self
             cell.setProject(project: rock.projects[indexPath.row - 1])
+            
+            // 岩・課題が無題の場合はYoutubeボタンを非活性にする
+            if (rock.name == "無題" && rock.projects[indexPath.row - 1].name == "無題") {
+                cell.disabledYoutubeBtn()
+            }
             return cell
         }
     }

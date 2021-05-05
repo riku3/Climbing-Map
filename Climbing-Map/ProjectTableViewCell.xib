@@ -60,6 +60,7 @@
             <connections>
                 <outlet property="grade" destination="tTx-zQ-TNQ" id="M2L-NA-tAf"/>
                 <outlet property="projectName" destination="VK7-18-R6D" id="K2n-nP-T0Y"/>
+                <outlet property="youtubeBtn" destination="qhS-X1-O3d" id="2qB-NT-ZtM"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="94.754464285714278"/>
         </tableViewCell>

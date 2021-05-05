@@ -17,6 +17,7 @@ class ProjectTableViewCell: UITableViewCell {
 
     @IBOutlet weak var grade: UILabel!
     @IBOutlet weak var projectName: UILabel!
+    @IBOutlet weak var youtubeBtn: CustomButton!
     
     @IBAction func tappedYoutube(_ sender: CustomButton) {
         movieDelegate?.tappedYoutube(projectName: self.projectName.text!)
@@ -33,5 +34,11 @@ class ProjectTableViewCell: UITableViewCell {
     func setProject(project: Project) {
         self.projectName.text = project.name as String
         self.grade.text = project.grade as String
+    }
+    
+    func disabledYoutubeBtn() {
+        youtubeBtn.isEnabled = false
+        youtubeBtn.backgroundColor = UIColor.lightGray
+        youtubeBtn.setTitle("岩・課題の検索ができません", for: .normal)
     }
 }
