@@ -20,8 +20,15 @@ class WKWebviewController: UIViewController {
 
         webView = WKWebView(frame: view.frame)
         view.addSubview(webView)
-
-        let urlString = "https://www.youtube.com/results?search_query=\(rockName!)+\(projectName!)"
+        
+        var urlString = ""
+        if rockName == "無題" {
+            urlString = "https://www.youtube.com/results?search_query=\(projectName!)"
+        } else if projectName == "無題" {
+            urlString = "https://www.youtube.com/results?search_query=\(rockName!)"
+        } else {
+            urlString = "https://www.youtube.com/results?search_query=\(rockName!)+\(projectName!)"
+        }
         let encodeUrlString = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         if let url = URL(string: encodeUrlString!) {
             let request = URLRequest(url: url)

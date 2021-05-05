@@ -64,6 +64,11 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
             let cell = tableView.dequeueReusableCell(withIdentifier: "ProjectTableViewCell") as! ProjectTableViewCell
             cell.movieDelegate = self
             cell.setProject(project: rock.projects[indexPath.row - 1])
+            
+            // 岩・課題が無題の場合はYoutubeボタンを非活性にする
+            if (rock.name == "無題" && rock.projects[indexPath.row - 1].name == "無題") {
+                cell.disabledYoutubeBtn()
+            }
             return cell
         }
     }
