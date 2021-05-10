@@ -387,7 +387,8 @@ extension MapViewController: MKMapViewDelegate {
             
             let mapDetailVC = MapDetailViewController.fromStoryboard()
             for rock in rockList {
-                if annotation.title == rock.name {
+                let coordinate = annotation.coordinate
+                if coordinate.latitude == rock.latitude && coordinate.longitude == rock.longitude {
                     mapDetailVC.rock = rock
                     break
                 }
