@@ -432,9 +432,13 @@ extension MapViewController: UISearchBarDelegate {
         var rockNames: Array<String> = []
         var projectNames: Array<String> = []
         for rock in rockList {
-            rockNames.append(rock.name)
+            if rock.name != "無題" {
+                rockNames.append(rock.name)
+            }
             for project in rock.projects {
-                projectNames.append(project.name)
+                if project.name != "無題" {
+                    projectNames.append(project.name)
+                }
             }
         }
         viewController.rockNames = rockNames
