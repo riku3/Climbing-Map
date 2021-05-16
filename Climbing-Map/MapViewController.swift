@@ -282,20 +282,12 @@ class MapViewController: UIViewController {
     // ピンをセットする
     private func setPinToMap() {
         for rock in rockList {
-            // TODO: 削除
             // 岩ピン生成(Mock)
             let pinRock = MKPointAnnotation()
             pinRock.title = rock.name
-            // サブタイトル
-    //        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
             pinRock.coordinate = CLLocationCoordinate2D(latitude: rock.latitude, longitude: rock.longitude)
-            mapView.addAnnotation(pinRock)
             
-//            let customPin = CustomPinAnnotation(coordinate: CLLocationCoordinate2D(latitude: rock.latitude, longitude: rock.longitude),
-//                                                glyphText: rock.name,
-//                                                glyphTintColor: UIColor.white,
-//                                                markerTintColor: UIColor.red)
-//            mapView.addAnnotation(customPin)
+            mapView.addAnnotation(pinRock)
         }
     }
     
@@ -392,13 +384,21 @@ extension MapViewController: MKMapViewDelegate {
             }
             
             let mapDetailVC = MapDetailViewController.fromStoryboard()
+            var isRockFlag = false
             for rock in rockList {
                 let coordinate = annotation.coordinate
                 if coordinate.latitude == rock.latitude && coordinate.longitude == rock.longitude {
                     mapDetailVC.rock = rock
+                    isRockFlag = true
                     break
                 }
             }
+            
+            // 岩の座標が一致しない場合(ピンがクラスター状態)
+            if !isRockFlag {
+                return
+            }
+            
             fpc.show()
             fpc.isRemovalInteractionEnabled = true
             let appearance = SurfaceAppearance()
@@ -421,22 +421,13 @@ extension MapViewController: MKMapViewDelegate {
         
         let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
         
-//        guard let markerAnnotationView = annotationView as? MKMarkerAnnotationView,
-//              let customAnnotation = annotation as? CustomPinAnnotation else {
-//            return annotationView
-//        }
-        
         guard let markerAnnotationView = annotationView as? MKMarkerAnnotationView else {
             return annotationView
         }
 
         markerAnnotationView.clusteringIdentifier = "cluster"
         markerAnnotationView.annotation = annotation
-//        markerAnnotationView.glyphText = customAnnotation.glyphText
-//        markerAnnotationView.glyphTintColor = customAnnotation.glyphTintColor
-//        markerAnnotationView.markerTintColor = customAnnotation.markerTintColor
-        
-        
+
         return markerAnnotationView
     }
 }
@@ -483,23 +474,5 @@ class LandscapePanelLayout: FloatingPanelLayout {
             .full: FloatingPanelLayoutAnchor(absoluteInset: 16.0, edge: .top, referenceGuide: .safeArea),
             .tip: FloatingPanelLayoutAnchor(absoluteInset: 130.0, edge: .bottom, referenceGuide: .safeArea),
         ]
-    }
-}
-
-class CustomPinAnnotation: NSObject, MKAnnotation {
-    //座標
-    let coordinate: CLLocationCoordinate2D
-    //Pinのテキスト
-    let glyphText: String
-    //Pinのテキストの文字色
-    let glyphTintColor: UIColor
-    //Pinの色
-    let markerTintColor: UIColor
-    
-    init(coordinate: CLLocationCoordinate2D, glyphText: String, glyphTintColor: UIColor = .white, markerTintColor: UIColor) {
-        self.coordinate = coordinate
-        self.glyphText = glyphText
-        self.glyphTintColor = glyphTintColor
-        self.markerTintColor = markerTintColor
     }
 }
