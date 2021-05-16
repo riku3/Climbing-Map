@@ -249,10 +249,9 @@ class MapViewController: UIViewController {
                         latitude: rockLatitude,
                         projects: projects)
                     self.rockList.append(rock)
-                    
-                    // ピンにセット
-                    setPinToMap()
                 }
+                // ピンにセット
+                setPinToMap()
             }
         }
     }
@@ -286,9 +285,8 @@ class MapViewController: UIViewController {
             // 岩ピン生成(Mock)
             let pinRock = MKPointAnnotation()
             pinRock.title = rock.name
-            // サブタイトル
-    //        rock.subtitle = "初段×1,1級×1,2級×1,4級×1"
             pinRock.coordinate = CLLocationCoordinate2D(latitude: rock.latitude, longitude: rock.longitude)
+            
             mapView.addAnnotation(pinRock)
         }
     }
@@ -386,13 +384,21 @@ extension MapViewController: MKMapViewDelegate {
             }
             
             let mapDetailVC = MapDetailViewController.fromStoryboard()
+            var isRockFlag = false
             for rock in rockList {
                 let coordinate = annotation.coordinate
                 if coordinate.latitude == rock.latitude && coordinate.longitude == rock.longitude {
                     mapDetailVC.rock = rock
+                    isRockFlag = true
                     break
                 }
             }
+            
+            // 岩の座標が一致しない場合(ピンがクラスター状態)
+            if !isRockFlag {
+                return
+            }
+            
             fpc.show()
             fpc.isRemovalInteractionEnabled = true
             let appearance = SurfaceAppearance()
@@ -405,19 +411,25 @@ extension MapViewController: MKMapViewDelegate {
             fpc.track(scrollView: mapDetailVC.mapDetailTableView)
         }
     }
-    // FIXME: 現在地の方向を追加する
-//    func mapView(_ mapView: MKMapView, didAdd views: [MKAnnotationView]) {
-//        for view in views {
-//            if view.annotation is MKUserLocation {
-//                var headingImageView = UIImageView()
-//                if let image = UIImage(systemName: "arrowtriangle.up") {
-//                    headingImageView.image = image
-//                    headingImageView.frame = CGRect(x: (view.frame.size.width - image.size.width)/2, y: (view.frame.size.height - image.size.height)/2, width: image.size.width, height: image.size.height)
-//                }
-//                view.addSubview(headingImageView)
-//            }
-//        }
-//    }
+    
+    // マップ表示時
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // 現在地の場合はカスタムしない
+        if annotation is MKUserLocation{
+            return nil
+        }
+        
+        let annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: MKMapViewDefaultAnnotationViewReuseIdentifier, for: annotation)
+        
+        guard let markerAnnotationView = annotationView as? MKMarkerAnnotationView else {
+            return annotationView
+        }
+
+        markerAnnotationView.clusteringIdentifier = "cluster"
+        markerAnnotationView.annotation = annotation
+
+        return markerAnnotationView
+    }
 }
 
 extension MapViewController: UISearchBarDelegate {
@@ -463,11 +475,4 @@ class LandscapePanelLayout: FloatingPanelLayout {
             .tip: FloatingPanelLayoutAnchor(absoluteInset: 130.0, edge: .bottom, referenceGuide: .safeArea),
         ]
     }
-    // 横幅のカスタム
-//    func prepareLayout(surfaceView: UIView, in view: UIView) -> [NSLayoutConstraint] {
-//        return [
-//            surfaceView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor, constant: 8.0),
-//            surfaceView.widthAnchor.constraint(equalToConstant: 291),
-//        ]
-//    }
 }

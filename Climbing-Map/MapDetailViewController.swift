@@ -39,6 +39,9 @@ extension MapDetailViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             let cell = tableView.dequeueReusableCell(withIdentifier: "ImageTableViewCell") as! ImageTableViewCell
+            guard let rock = rock else {
+                return cell
+            }
 
             // 岩名なし
             if rock.name == "無題" {
