@@ -404,8 +404,6 @@ extension MapViewController: MKMapViewDelegate {
             let appearance = SurfaceAppearance()
             appearance.cornerRadius = 9.0
             fpc.surfaceView.appearance = appearance
-            // マージンの変更
-//            fpc.surfaceView.containerMargins = .init(top: 0, left: 10.0, bottom: 0, right: 10.0)
             fpc.set(contentViewController: mapDetailVC)
             fpc.addPanel(toParent: self)
             fpc.track(scrollView: mapDetailVC.mapDetailTableView)
